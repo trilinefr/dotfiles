@@ -61,11 +61,11 @@ call plug#begin()
  Plug 'junegunn/vim-easy-align'
  Plug 'rdnetto/YCM-Generator'
  Plug 'lervag/vimtex'
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+let g:tex_flavor           = 'latex'
+let g:vimtex_view_method   = 'zathura'
+let g:vimtex_quickfix_mode = 0
+set conceallevel           = 1
+let g:tex_conceal          = 'abdmg'
 Plug 'ycm-core/YouCompleteMe' 
 let g:ycm_key_list_select_completion   = ['<tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
@@ -77,7 +77,7 @@ let g:ycm_key_invoke_completion        = ''
 let g:UltiSnipsExpandTrigger       = '<CR>'
 let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.vim/personnalized_snippets/"]
+let g:UltiSnipsSnippetDirectories  = ["UltiSnips", "~/.vim/personnalized_snippets/"]
 
 call plug#end()
 
