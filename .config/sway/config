@@ -44,11 +44,11 @@ set $browser qutebrowser
 
 ## Modes
 set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad, [k]ill window, [workspace name] go to workspace"
-set $switch "Switch mode : access syst[e]m mode, [m]ove mode (or [ctsr]), la[y]out mode, [r]esize mode, [l]aunch mode"
+set $switch "Switch mode : access syst[e]m mode, [m]ove mode (or [ctsr]), la[y]out mode, [r]esize mode, [space] launch mode"
 set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
 set $layout "Layout mode : split[h], split[v], switch between layouts [space], [alt+space], [shift+space]"
 set $resize "Resize mode : [ctsr], prepend shift to modify gaps"
-set $launch "Launch mode : [enter] terminal"
+set $launch "Launch mode : [enter] terminal, [b]rowser"
 set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
 
 #### Input
@@ -121,13 +121,13 @@ mode $switch {
     bindsym e mode $system
 
     # Layout mode
-    bindsym y mode $layout
+    bindsym l mode $layout
 
     # Resize mode
     bindsym k mode $resize
 
     # Launch mode
-    bindsym l mode $launch
+    bindsym Space mode $launch
     
     # Exit switch mode 
     bindsym Space mode default
@@ -235,6 +235,7 @@ mode $resize {
 ## Launch mode
 mode $launch {
     bindsym Return exec $term
+    bindsym b exec $browser
     bindsym Escape mode default
     bindsym Space  mode default
 }
