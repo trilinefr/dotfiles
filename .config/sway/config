@@ -43,11 +43,11 @@ set $browser qutebrowser
 
 
 ## Modes
-set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad"
-set $switch "Switch mode : access syst[e]m mode, [m]ove mode, la[y]out mode, [l]aunch mode"
+set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad, [k]ill window, [workspace name] go to workspace"
+set $switch "Switch mode : access syst[e]m mode, [m]ove mode (or [ctsr]), la[y]out mode, [r]esize mode, [l]aunch mode"
 set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
-set $layout "Layout mode : split[h], split[v], toggle between [t]abbed, [s]tacked, floating [space], [r]esize"
-set $resize "Resize mode : [ctsr]"
+set $layout "Layout mode : split[h], split[v], switch between layouts [space], [alt+space], [shift+space]"
+set $resize "Resize mode : [ctsr], prepend shift to modify gaps"
 set $launch "Launch mode : [enter] terminal"
 set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
 
@@ -69,12 +69,17 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 #### Modes
 ## Default mode 
+# Mode switch
+bindsym Super_L mode $switch
+
+# Accès direct via le modifier Alt (mod1)
 bindsym $mod+Return exec $term
 bindsym $mod+Tab focus mode_toggle
 bindsym $mod_switch+Space layout toggle split
 bindsym $mod+Space scratchpad show
 bindsym $mod+k kill
-bindsym Super_L mode $switch
+bindsym $mod+f floating toggle
+
 bindsym $mod+$1  workspace 1
 bindsym $mod+$2  workspace 2
 bindsym $mod+$3  workspace 3
@@ -137,8 +142,7 @@ mode $move {
     bindsym f focus floating
     bindsym h focus tiling
     bindsym p focus parent
-    bindsym $mod+Tab focus mode_toggle
-    bindsym $mod+Space scratchpad show
+    bindsym Tab focus mode_toggle
 
     bindsym $1  workspace 1
     bindsym $2  workspace 2
@@ -160,31 +164,29 @@ mode $move {
     bindsym Shift+$left move left 10px
     bindsym Shift+$down move down 10px
     bindsym Shift+$up move up 10px
-    bindsym Shift+Space move position center
+    bindsym Shift+z move position center
     
     ## To specified workspace
-    bindsym Shift+$mod+$right move container to workspace next
-    bindsym Shift+$mod+$left move container to workspace prev
-    bindsym Shift+$1 move container to workpace $1
-    bindsym Shift+$2 move container to workpace $2
-    bindsym Shift+$3 move container to workpace $3
-    bindsym Shift+$4 move container to workpace $4
-    bindsym Shift+$5 move container to workpace $5
-    bindsym Shift+$6 move container to workpace $6
-    bindsym Shift+$7 move container to workpace $7
-    bindsym Shift+$8 move container to workpace $8
-    bindsym Shift+$9 move container to workpace $9
-    bindsym Shift+$0 move container to workpace $0
-    bindsym Shift+Control+$mod+$left move workspace to left
-    bindsym Shift+Control+$mod+$right move workspace to right
+    bindsym Shift+$1 move container to workspace 1
+    bindsym Shift+$2 move container to workspace 2
+    bindsym Shift+$3 move container to workspace 3
+    bindsym Shift+$4 move container to workspace 4
+    bindsym Shift+$5 move container to workspace 5
+    bindsym Shift+$6 move container to workspace 6
+    bindsym Shift+$7 move container to workspace 7
+    bindsym Shift+$8 move container to workspace 8
+    bindsym Shift+$9 move container to workspace 9
+    bindsym Shift+$0 move container to workspace 10
+    bindsym Shift+$mod+$left move workspace to left
+    bindsym Shift+$mod+$right move workspace to right
 
     ## Scratchpad
-    bindsym $mod+Shift+Space move window to scratchpad
+    bindsym Shift+Space move window to scratchpad
+    bindsym Space scratchpad show
 
     # Exit move mode
     bindsym Return mode default
     bindsym Escape mode default
-    bindsym Space mode default
     bindsym apostrophe mode default
 }
 
@@ -196,6 +198,7 @@ mode $layout {
     bindsym h split horizontal; mode normal
     bindsym v split vertical; mode normal
     bindsym l split toggle; mode normal
+    bindsym f floating toggle
     
     # Exit layout mode
     bindsym Return mode default
