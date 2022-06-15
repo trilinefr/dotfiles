@@ -42,6 +42,14 @@ set $term foot
 set $browser qutebrowser
 
 
+## Modes
+set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad"
+set $switch "Switch mode : access syst[e]m mode, [m]ove mode, la[y]out mode, [l]aunch mode"
+set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
+set $layout "Layout mode : split[h], split[v], toggle between [t]abbed, [s]tacked, floating [space], [r]esize"
+set $resize "Resize mode : [ctsr]"
+set $launch "Launch mode : [enter] terminal"
+set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
 
 #### Input
 input {
@@ -61,8 +69,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 #### Modes
 ## Normal mode (default)
-set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad"
-set $switch "Switch mode : access syst[e]m mode, [m]ove mode, la[y]out mode, [l]aunch mode"
 mode $normal {
     bindsym $mod_switch mode $switch
     bindsym $mod+Return exec $term
@@ -100,7 +106,6 @@ mode $switch {
 }
 
 ## System mode
-set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
 mode $system {
     bindsym r reload
     bindsym e exit
@@ -112,7 +117,6 @@ mode $system {
 }
 
 ## Move mode
-set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
 mode $move {
     # Move focus arround
     bindsym $right focus right
@@ -127,20 +131,20 @@ mode $move {
     bindsym $mod+Tab focus mode_toggle
     bindsym $mod+Space scratchpad show
 
-    bindsym $mod+$1  workpace $1
-    bindsym $mod+$2  workpace $2
-    bindsym $mod+$3  workpace $3
-    bindsym $mod+$4  workpace $4
-    bindsym $mod+$5  workpace $5
-    bindsym $mod+$6  workpace $6
-    bindsym $mod+$7  workpace $7
-    bindsym $mod+$8  workpace $8
-    bindsym $mod+$9  workpace $9
-    bindsym $mod+$0  workpace $0
-    bindsym Control+$mod+$left prev
-    bindsym Control+$mod+$right next
+    bindsym $1  workpace $1
+    bindsym $2  workpace $2
+    bindsym $3  workpace $3
+    bindsym $4  workpace $4
+    bindsym $5  workpace $5
+    bindsym $6  workpace $6
+    bindsym $7  workpace $7
+    bindsym $8  workpace $8
+    bindsym $9  workpace $9
+    bindsym $0  workpace $0
+    bindsym Control+$mod+$left workspace prev
+    bindsym Control+$mod+$right workspace next
 
-    # Move containers arround
+    # Move containers arround (pixels are for floating mode)
     ## Locally
     bindsym Shift+$right move right 10px
     bindsym Shift+$left move left 10px
@@ -161,8 +165,8 @@ mode $move {
     bindsym Shift+$8 move container to workpace $8
     bindsym Shift+$9 move container to workpace $9
     bindsym Shift+$0 move container to workpace $0
-    bindsym Control+$mod+Shift+$left move workspace to left
-    bindsym Control+$mod+Shift+$right move workspace to right
+    bindsym Shift+Control+$mod+$left move workspace to left
+    bindsym Shift+Control+$mod+$right move workspace to right
 
     ## Scratchpad
     bindsym $mod+Shift+Space move window to scratchpad
@@ -174,7 +178,6 @@ mode $move {
     bindsym apostrophe mode $normal
 }
 
-set $layout "Layout mode : split[h], split[v], toggle between [t]abbed, [s]tacked, floating [space], [r]esize"
 mode $layout {
     bindsym Space layout toggle
     bindsym $mod+Space layout toggle split
@@ -191,7 +194,6 @@ mode $layout {
 }
 
 ## Resize mode
-set $resize "Resize mode : [ctsr]"
 mode $resize {
     bindsym $left resize shrink width
     bindsym $right resize grow width
@@ -202,7 +204,6 @@ mode $resize {
 }
 
 ## Launch mode
-set $launch "Launch mode : [enter] terminal"
 mode $launch {
     
 }
