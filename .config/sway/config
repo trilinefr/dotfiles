@@ -1,0 +1,217 @@
+# Configuration modale de swaywm
+
+#### Configuration (mostly default but written down here in case I'd want to modify them later)
+## TODO: add bar configuration
+#swaynag_command swaynag (use only to provide additionnal argument on default command, has to be first in the config file)
+#bar waybar <bar-subcommands>
+default_orientation horizontal
+workspace_layout tabbed
+xwayland enable
+
+
+# Réglages divers
+focus_wrapping yes
+bindsym Super_L mode $normal
+
+
+#### Variables
+## Modifier keys
+set $mod_switch Super_L
+set $mod Mod1
+
+## Mouvements
+set $left c
+set $down t
+set $up s
+set $right r
+
+## Workspaces
+set $1 quotedbl
+set $2 guillemotleft
+set $3 guillemotright
+set $4 parenleft
+set $5 parenright
+set $6 at
+set $7 plus
+set $8 minus
+set $9 slash
+set $0 asterisk
+
+## Applications
+set $term foot
+set $browser qutebrowser
+
+
+
+#### Input
+input {
+    "7764:8240:TypeMatrix.com_USB_Keyboard" {
+        xkb_layout fr
+        xkb_variant bepo
+        xkb_model tm2030USB-106
+    }
+}
+
+
+
+#### Output
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+
+
+#### Modes
+## Normal mode (default)
+set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad"
+set $switch "Switch mode : access syst[e]m mode, [m]ove mode, la[y]out mode, [l]aunch mode"
+mode $normal {
+    bindsym $mod_switch mode $switch
+    bindsym $mod+Return exec $term
+    bindsym $mod+Tab focus mode_toggle
+    bindsym $mod_switch+Space layout toggle split
+    bindsym $mod+Space scratchpad show
+    bindsym $mod+k kill
+}
+
+## Switch mode
+mode $switch {
+    # [cstr] and m triggers move mode
+    bindsym $right focus right; mode $move
+    bindsym $left focus left; mode $move
+    bindsym $down focus down; mode $move
+    bindsym $up focus up; mode $move
+    bindsym m mode move
+    
+    # System mode
+    bindsym e mode $system
+
+    # Layout mode
+    bindsym y mode $layout
+
+    # Resize mode
+    bindsym k mode $resize
+
+    # Launch mode
+    bindsym l mode $launch
+    
+    # Exit switch mode 
+    bindsym Space mode $normal
+    bindsym Escape mode $normal
+    bindsym Return mode $normal
+}
+
+## System mode
+set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
+mode $system {
+    bindsym r reload
+    bindsym e exit
+    bindsym p exec systemctl poweroff
+    bindsym s exec systemctl suspend
+    bindsym Space mode $normal
+    bindsym Escape mode $normal
+    bindsym Return mode $normal
+}
+
+## Move mode
+set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
+mode $move {
+    # Move focus arround
+    bindsym $right focus right
+    bindsym $left focus left
+    bindsym $down focus down
+    bindsym $up focus up
+    bindsym $mod+$left focus output left
+    bindsym $mod+$right focus output right
+    bindsym f focus floating
+    bindsym h focus tiling
+    bindsym p focus parent
+    bindsym $mod+Tab focus mode_toggle
+    bindsym $mod+Space scratchpad show
+
+    bindsym $mod+$1  workpace $1
+    bindsym $mod+$2  workpace $2
+    bindsym $mod+$3  workpace $3
+    bindsym $mod+$4  workpace $4
+    bindsym $mod+$5  workpace $5
+    bindsym $mod+$6  workpace $6
+    bindsym $mod+$7  workpace $7
+    bindsym $mod+$8  workpace $8
+    bindsym $mod+$9  workpace $9
+    bindsym $mod+$0  workpace $0
+    bindsym Control+$mod+$left prev
+    bindsym Control+$mod+$right next
+
+    # Move containers arround
+    ## Locally
+    bindsym Shift+$right move right 10px
+    bindsym Shift+$left move left 10px
+    bindsym Shift+$down move down 10px
+    bindsym Shift+$up move up 10px
+    bindsym Shift+Space move position center
+    
+    ## To specified workspace
+    bindsym Shift+$mod+$right move container to workspace next
+    bindsym Shift+$mod+$left move container to workspace prev
+    bindsym Shift+$1 move container to workpace $1
+    bindsym Shift+$2 move container to workpace $2
+    bindsym Shift+$3 move container to workpace $3
+    bindsym Shift+$4 move container to workpace $4
+    bindsym Shift+$5 move container to workpace $5
+    bindsym Shift+$6 move container to workpace $6
+    bindsym Shift+$7 move container to workpace $7
+    bindsym Shift+$8 move container to workpace $8
+    bindsym Shift+$9 move container to workpace $9
+    bindsym Shift+$0 move container to workpace $0
+    bindsym Control+$mod+Shift+$left move workspace to left
+    bindsym Control+$mod+Shift+$right move workspace to right
+
+    ## Scratchpad
+    bindsym $mod+Shift+Space move window to scratchpad
+
+    # Exit move mode
+    bindsym Return mode $normal
+    bindsym Escape mode $normal
+    bindsym Space mode $normal
+    bindsym apostrophe mode $normal
+}
+
+set $layout "Layout mode : split[h], split[v], toggle between [t]abbed, [s]tacked, floating [space], [r]esize"
+mode $layout {
+    bindsym Space layout toggle
+    bindsym $mod+Space layout toggle split
+    bindsym Shift+Space layout toggle all
+    bindsym p focus parent
+    bindsym h split horizontal; mode normal
+    bindsym v split vertical; mode normal
+    bindsym l split toggle; mode normal
+    
+    # Exit layout mode
+    bindsym Return mode $normal
+    bindsym Escape mode $normal
+    bindsym apostrophe mode $normal
+}
+
+## Resize mode
+set $resize "Resize mode : [ctsr]"
+mode $resize {
+    bindsym $left resize shrink width
+    bindsym $right resize grow width
+    bindsym $up resize shrink height
+    bindsym $down resize grow height
+    bindsym $mod+$left gaps inner current plus 5px
+    bindsym $mod+$right gaps inner current minus 5px
+}
+
+## Launch mode
+set $launch "Launch mode : [enter] terminal"
+mode $launch {
+    
+}
+
+bar {
+    position top
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
