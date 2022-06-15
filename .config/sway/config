@@ -63,8 +63,24 @@ input {
 
 
 #### Output
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output {
+    # All screens
+    * {
+        bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    }
 
+    # Left screen
+    DVI-I-1 {
+        mode 1366x768@60Hz
+        position 0 0
+    }
+
+    # Right screen
+    VGA-1 {
+        mode 1920x1080@60Hz
+        position 1366 0
+    }
+}
 
 
 #### Modes
