@@ -43,7 +43,6 @@ set $browser qutebrowser
 
 
 ## Modes
-set $normal "Normal mode : [super] switch mode, use alt to access following bindings : [enter] terminal, [tab] switch between floating and tiling area, [space] show scratchpad, [k]ill window, [workspace name] go to workspace"
 set $switch "Switch mode : access syst[e]m mode, [m]ove mode (or [ctsr]), la[y]out mode, [r]esize mode, [space] launch mode"
 set $system "System mode : [s]uspend, [p]oweroff, [e]xit sway, [r]eload configuration"
 set $layout "Layout mode : split[h], split[v], switch between layouts [space], [alt+space], [shift+space]"
@@ -130,18 +129,16 @@ mode $switch {
     bindsym Space mode $launch
     
     # Exit switch mode 
-    bindsym Space mode default
     bindsym Escape mode default
     bindsym Return mode default
 }
 
 ## System mode
 mode $system {
-    bindsym r reload
-    bindsym e exit
-    bindsym p exec systemctl poweroff
-    bindsym s exec systemctl suspend
-    bindsym Space mode default
+    bindsym r reload; mode default
+    bindsym e exit; mode default
+    bindsym p exec systemctl poweroff; mode default
+    bindsym s exec systemctl suspend; mode default
     bindsym Escape mode default
     bindsym Return mode default
 }
@@ -211,9 +208,9 @@ mode $layout {
     bindsym $mod+Space layout toggle split
     bindsym Shift+Space layout toggle all
     bindsym p focus parent
-    bindsym h split horizontal; mode normal
-    bindsym v split vertical; mode normal
-    bindsym l split toggle; mode normal
+    bindsym h split horizontal; mode default
+    bindsym v split vertical; mode default
+    bindsym l split toggle; mode default
     bindsym f floating toggle
     
     # Exit layout mode
@@ -234,10 +231,9 @@ mode $resize {
 
 ## Launch mode
 mode $launch {
-    bindsym Return exec $term
-    bindsym b exec $browser
+    bindsym Return exec $term; mode default
+    bindsym b exec $browser; mode default
     bindsym Escape mode default
-    bindsym Space  mode default
 }
 
 bar {
