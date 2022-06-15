@@ -205,7 +205,9 @@ mode $resize {
 
 ## Launch mode
 mode $launch {
-    
+    bindsym Return exec $term
+    bindsym Escape mode $normal
+    bindsym Space  mode $normal
 }
 
 bar {
