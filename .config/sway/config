@@ -13,6 +13,10 @@ focus_wrapping yes
 workspace_auto_back_and_forth yes
 
 
+bar {
+    position top
+    swaybar_command waybar
+}
 
 #### Variables
 ## Modifier keys
@@ -40,6 +44,7 @@ set $0 asterisk
 ## Applications
 set $term foot
 set $browser qutebrowser
+set $editor vim
 
 
 ## Modes
@@ -92,8 +97,10 @@ bindsym $mod+Return exec $term
 bindsym $mod+Tab focus mode_toggle
 bindsym $mod_switch+Space layout toggle split
 bindsym $mod+Space scratchpad show
+bindsym $mod+Shift+Space move window to scratchpad
 bindsym $mod+k kill
 bindsym $mod+f floating toggle
+bindsym XF86HomePage exec $browser
 
 bindsym $mod+$1  workspace 1
 bindsym $mod+$2  workspace 2
@@ -109,18 +116,25 @@ bindsym $mod+$0  workspace 10
 
 ## Switch mode
 mode $switch {
-    # [cstr] and m triggers move mode
+    # [cstr], m and ' trigger move mode
     bindsym $right focus right; mode $move
     bindsym $left focus left; mode $move
     bindsym $down focus down; mode $move
     bindsym $up focus up; mode $move
+    
+    bindsym Shift+$right move right 10px; mode $move
+    bindsym Shift+$left move left 10px; mode $move
+    bindsym Shift+$down move down 10px; mode $move
+    bindsym Shift+$up move up 10px; mode $move
+
     bindsym m mode $move
+    bindsym Apostrophe mode $mvve
     
     # System mode
     bindsym e mode $system
 
     # Layout mode
-    bindsym l mode $layout
+    bindsym y mode $layout
 
     # Resize mode
     bindsym k mode $resize
@@ -197,10 +211,11 @@ mode $move {
     bindsym Shift+Space move window to scratchpad
     bindsym Space scratchpad show
 
+    # Go to launch mode
+    bindsym Return mode $launch
+
     # Exit move mode
-    bindsym Return mode default
     bindsym Escape mode default
-    bindsym apostrophe mode default
 }
 
 mode $layout {
@@ -234,13 +249,7 @@ mode $launch {
     bindsym Return exec $term; mode default
     bindsym b exec $browser; mode default
     bindsym Escape mode default
+    bindsym b split vertical
+    bindsym eacute split horizontal
 }
 
-bar {
-    position top
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}

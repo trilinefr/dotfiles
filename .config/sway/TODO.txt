@@ -1,6 +1,0 @@
-TODO :
-    - Configurer la bar avec waybar
-        > Si possible avec un widget appendu qui développe la description du mode en cours
-        > 
-    - Faire un conky
-    - Installer rofi ou équivalent
