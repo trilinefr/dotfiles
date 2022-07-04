@@ -45,6 +45,7 @@ set $0 asterisk
 set $term foot
 set $browser qutebrowser
 set $editor vim
+set $menu $term --class=launcher -e /path/to/repo/sway-launcher-desktop.sh
 
 
 ## Modes
@@ -101,6 +102,7 @@ bindsym $mod+Shift+Space move window to scratchpad
 bindsym $mod+k kill
 bindsym $mod+f floating toggle
 bindsym XF86HomePage exec $browser
+bindsym $mod+d exec $menu
 
 bindsym $mod+$1  workspace 1
 bindsym $mod+$2  workspace 2
@@ -247,9 +249,11 @@ mode $resize {
 ## Launch mode
 mode $launch {
     bindsym Return exec $term; mode default
-    bindsym b exec $browser; mode default
+    bindsym n exec $browser; mode default
     bindsym Escape mode default
     bindsym b split vertical
     bindsym eacute split horizontal
 }
 
+# Organisation des espaces de travail
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
