@@ -4,12 +4,13 @@
 ## TODO: add bar configuration
 #swaynag_command swaynag (use only to provide additionnal argument on default command, has to be first in the config file)
 #bar waybar <bar-subcommands>
-default_orientation horizontal
+default_orientation auto
 workspace_layout tabbed
 xwayland enable
+default_border normal
 
 # Réglages divers
-focus_wrapping yes
+focus_wrapping no
 workspace_auto_back_and_forth yes
 
 
@@ -22,6 +23,7 @@ bar {
 ## Modifier keys
 set $mod_switch Super_L
 set $mod Mod1
+floating_modifier $mod
 
 ## Mouvements
 set $left c
@@ -30,22 +32,61 @@ set $up s
 set $right r
 
 ## Workspaces
-set $1 quotedbl
-set $2 guillemotleft
-set $3 guillemotright
-set $4 parenleft
-set $5 parenright
-set $6 at
-set $7 plus
-set $8 minus
-set $9 slash
-set $0 asterisk
+
+# set $key_0 b
+# set $key_1 quotedbl
+# set $key_2 guillemotleft
+# set $key_3 guillemotright
+# set $key_4 parenleft
+# set $key_5 parenright
+# set $key_6 at
+# set $key_7 plus
+# set $key_8 minus
+# set $key_9 slash
+
+set $key_1 a
+set $key_2 u
+set $key_3 i
+set $key_4 e
+set $key_5 comma
+set $key_6 b
+set $key_7 eacute
+set $key_8 p
+set $key_9 o
+set $key_0 egrave
+
+set $wksp_1 1
+set $wksp_2 2
+set $wksp_3 3
+set $wksp_4 4
+set $wksp_5 5
+set $wksp_6 6
+set $wksp_7 7
+set $wksp_8 8
+set $wksp_9 9
+set $wksp_10 10
+
+set $left_screen DVI-I-1
+set $right_screen VGA-1
 
 ## Applications
 set $term foot
-set $browser qutebrowser
+set $browser firefox
+set $file_manager caja
 set $editor vim
-set $menu $term --class=launcher -e /path/to/repo/sway-launcher-desktop.sh
+set $menu $term --app-id=launcher -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
+set $mail thunderbird
+
+# Launch on startup
+assign [instance="Navigator"] workspace $wksp_6
+assign [app_id="foot_startup"] workspace $wksp_1
+assign [instance="Mail"] workspace $wksp_3
+assign [class="Caja"] workspace $wksp_2
+
+exec firefox
+exec foot --app-id=foot_startup
+exec thunderbird
+exec caja
 
 
 ## Modes
@@ -58,6 +99,10 @@ set $move "Move mode : [ctsr] moves focus, prepend Shift to move container, [spa
 
 #### Input
 input {
+    * {
+        xkb_layout fr
+        xkb_variant latin9
+    }
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
         xkb_layout fr
         xkb_variant bepo
@@ -74,46 +119,85 @@ output {
         bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     }
 
-    # Left screen
-    DVI-I-1 {
-        mode 1366x768@60Hz
-        position 0 0
-    }
+    # Resolution settings
+    DVI-I-1 mode 1366x768@60Hz
+    VGA-1 mode 1920x1080@60Hz
 
-    # Right screen
-    VGA-1 {
-        mode 1920x1080@60Hz
-        position 1366 0
-    }
+    # Sreen position
+    $left_screen position 0 0
+    $right_sceen position 1366 0
 }
 
 
-#### Modes
+# Modes
 ## Default mode 
-# Mode switch
+### Go to switch mode
 bindsym Super_L mode $switch
 
-# Accès direct via le modifier Alt (mod1)
+### Raccourcis en accès direct
+#### Launching apps
 bindsym $mod+Return exec $term
-bindsym $mod+Tab focus mode_toggle
 bindsym $mod_switch+Space layout toggle split
-bindsym $mod+Space scratchpad show
-bindsym $mod+Shift+Space move window to scratchpad
-bindsym $mod+k kill
-bindsym $mod+f floating toggle
 bindsym XF86HomePage exec $browser
-bindsym $mod+d exec $menu
+bindsym XF86Mail exec $mail
+bindsym $mod+Space exec $menu
 
-bindsym $mod+$1  workspace 1
-bindsym $mod+$2  workspace 2
-bindsym $mod+$3  workspace 3
-bindsym $mod+$4  workspace 4
-bindsym $mod+$5  workspace 5
-bindsym $mod+$6  workspace 6
-bindsym $mod+$7  workspace 7
-bindsym $mod+$8  workspace 8
-bindsym $mod+$9  workspace 9
-bindsym $mod+$0  workspace 10
+#### Mouvements
+##### Switch between floating and tiles area
+bindsym $mod+Tab focus mode_toggle
+bindsym $mod+dead_circumflex focus parent
+
+##### Focus
+bindsym $mod+$right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym Control+$mod+$right focus output right
+bindsym Control+$mod+$left focus output left
+
+##### Workspaces
+bindsym $mod+$key_1  workspace $wksp_1
+bindsym $mod+$key_2  workspace $wksp_2
+bindsym $mod+$key_3  workspace $wksp_3
+bindsym $mod+$key_4  workspace $wksp_4
+bindsym $mod+$key_5  workspace $wksp_5
+bindsym $mod+$key_6  workspace $wksp_6
+bindsym $mod+$key_7  workspace $wksp_7
+bindsym $mod+$key_8  workspace $wksp_8
+bindsym $mod+$key_9  workspace $wksp_9
+bindsym $mod+$key_0  workspace $wksp_10
+bindsym $mod+m workspace back_and_forth
+
+#### Containers
+bindsym Shift+$mod+$right move right 10px
+bindsym Shift+$mod+$left move left 10px
+bindsym Shift+$mod+$down move down 10px
+bindsym Shift+$mod+$up move up 10px
+bindsym Shift+$mod+$key_1  move workspace $wksp_1
+bindsym Shift+$mod+$key_2  move workspace $wksp_2
+bindsym Shift+$mod+$key_3  move workspace $wksp_3
+bindsym Shift+$mod+$key_4  move workspace $wksp_4
+bindsym Shift+$mod+$key_5  move workspace $wksp_5
+bindsym Shift+$mod+$key_6  move workspace $wksp_6
+bindsym Shift+$mod+$key_7  move workspace $wksp_7
+bindsym Shift+$mod+$key_8  move workspace $wksp_8
+bindsym Shift+$mod+$key_9  move workspace $wksp_9
+bindsym Shift+$mod+$key_0  move workspace $wksp_10
+bindsym Shift+$mod+m move workspace back_and_forth
+
+#### Scratchpad
+bindsym $mod+backspace scratchpad show
+bindsym Shift+$mod+backspace move to scratchpad
+
+#### Layout
+bindsym $mod+v split horizontal
+bindsym $mod+h split vertical
+
+### Actions
+bindsym $mod+k kill
+bindsym BTN_MIDDLE kill
+bindsym $mod+f floating toggle
+bindsym $mod+period mode $resize
 
 
 ## Switch mode
@@ -130,7 +214,7 @@ mode $switch {
     bindsym Shift+$up move up 10px; mode $move
 
     bindsym m mode $move
-    bindsym Apostrophe mode $mvve
+    bindsym Apostrophe mode $move
     
     # System mode
     bindsym e mode $system
@@ -152,6 +236,7 @@ mode $switch {
 ## System mode
 mode $system {
     bindsym r reload; mode default
+    bindsym c $term -e $editor ~/.config/sway/config -m -D ~/; mode default
     bindsym e exit; mode default
     bindsym p exec systemctl poweroff; mode default
     bindsym s exec systemctl suspend; mode default
@@ -170,19 +255,19 @@ mode $move {
     bindsym $mod+$right focus output right
     bindsym f focus floating
     bindsym h focus tiling
-    bindsym p focus parent
+    bindsym dead_circumflex focus parent
     bindsym Tab focus mode_toggle
 
-    bindsym $1  workspace 1
-    bindsym $2  workspace 2
-    bindsym $3  workspace 3
-    bindsym $4  workspace 4
-    bindsym $5  workspace 5
-    bindsym $6  workspace 6
-    bindsym $7  workspace 7
-    bindsym $8  workspace 8
-    bindsym $9  workspace 9
-    bindsym $0  workspace 10
+    bindsym $key_1  workspace $wksp_1
+    bindsym $key_2  workspace $wksp_2
+    bindsym $key_3  workspace $wksp_3
+    bindsym $key_4  workspace $wksp_4
+    bindsym $key_5  workspace $wksp_5
+    bindsym $key_6  workspace $wksp_6
+    bindsym $key_7  workspace $wksp_7
+    bindsym $key_8  workspace $wksp_8
+    bindsym $key_9  workspace $wksp_9
+    bindsym $key_0  workspace $wksp_10
     bindsym Control+$mod+$left workspace prev
     bindsym Control+$mod+$right workspace next
     bindsym Control+$mod+Tab workspace back_and_forth
@@ -196,16 +281,16 @@ mode $move {
     bindsym Shift+z move position center
     
     ## To specified workspace
-    bindsym Shift+$1 move container to workspace 1
-    bindsym Shift+$2 move container to workspace 2
-    bindsym Shift+$3 move container to workspace 3
-    bindsym Shift+$4 move container to workspace 4
-    bindsym Shift+$5 move container to workspace 5
-    bindsym Shift+$6 move container to workspace 6
-    bindsym Shift+$7 move container to workspace 7
-    bindsym Shift+$8 move container to workspace 8
-    bindsym Shift+$9 move container to workspace 9
-    bindsym Shift+$0 move container to workspace 10
+    bindsym Shift+$key_1 move container to workspace $wksp_1
+    bindsym Shift+$key_2 move container to workspace $wksp_2
+    bindsym Shift+$key_3 move container to workspace $wksp_3
+    bindsym Shift+$key_4 move container to workspace $wksp_4
+    bindsym Shift+$key_5 move container to workspace $wksp_5
+    bindsym Shift+$key_6 move container to workspace $wksp_6
+    bindsym Shift+$key_7 move container to workspace $wksp_7
+    bindsym Shift+$key_8 move container to workspace $wksp_8
+    bindsym Shift+$key_9 move container to workspace $wksp_9
+    bindsym Shift+$key_0 move container to workspace $wksp_10
     bindsym Shift+$mod+$left move workspace to left
     bindsym Shift+$mod+$right move workspace to right
 
@@ -218,6 +303,7 @@ mode $move {
 
     # Exit move mode
     bindsym Escape mode default
+    bindsym Apostrophe mode default
 }
 
 mode $layout {
@@ -244,6 +330,7 @@ mode $resize {
     bindsym $down resize grow height
     bindsym $mod+$left gaps inner current plus 5px
     bindsym $mod+$right gaps inner current minus 5px
+    bindsym Escape mode default
 }
 
 ## Launch mode
@@ -256,4 +343,21 @@ mode $launch {
 }
 
 # Organisation des espaces de travail
+## Fenêtres spéciales
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+
+## Distribution des espaces de travail
+workspace $wksp_1 output $left_screen
+workspace $wksp_2 output $left_screen
+workspace $wksp_3 output $left_screen
+workspace $wksp_4 output $left_screen
+workspace $wksp_5 output $left_screen
+
+workspace $wksp_6 output $right_screen
+workspace $wksp_7 output $right_screen
+workspace $wksp_8 output $right_screen
+workspace $wksp_9 output $right_screen
+workspace $wksp_10 output $right_screen
+
+## Espace de travail par défaut des applications
+assign [app_id="org.pwmt.zathura"] workspace $wksp_7
