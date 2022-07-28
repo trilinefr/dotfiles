@@ -72,7 +72,7 @@ set $right_screen VGA-1
 ## Applications
 set $term         foot
 set $browser      firefox
-set $file_manager caja
+set $file_manager $term --app-id=file-manager -e ranger
 set $editor       vim
 set $menu         $term --app-id=launcher -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
 set $mail         thunderbird
@@ -81,7 +81,7 @@ set $mail         thunderbird
 assign [instance="Navigator"]  workspace $wksp_6
 assign [app_id="foot_startup"] workspace $wksp_1
 assign [instance="Mail"]       workspace $wksp_3
-assign [class="Caja"]          workspace $wksp_2
+assign [app_id="file-manager"] workspace $wksp_2
 
 exec firefox
 exec foot --app-id=foot_startup
@@ -117,7 +117,7 @@ input {
 output {
     # All screens
     * {
-        bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+        bg ~/Downloads/bg.jpg fill
     }
 
     # Resolution settings
