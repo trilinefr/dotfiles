@@ -66,6 +66,18 @@ Plug 'tpope/vim-repeat'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'tommcdo/vim-exchange'
+let g:exchange_no_mappings=1
+nmap lx <Plug>(Exchange)
+xmap X  <Plug>(Exchange)
+nmap lxl <Plug>(ExchangeClear)
+nmap lxx <Plug>(ExchangeLine)
+
+Plug 'tpope/vim-abolish'
+let g:abolish_no_mappings=1
+nmap lm <Plug>(abolish-coerce-word)
+
+
 call plug#end()
 
 colorscheme torte
@@ -146,8 +158,7 @@ noremap gé gt
 noremap gB :exe "silent! tabfirst"<CR>
 noremap gÉ :exe "silent! tablast"<CR>
 " optionnel : {g"} pour aller au début de la ligne écran
-noremap g" g0
- 
+noremap g" g0 
 " <> en direct
 " ————————————
 noremap « <
@@ -178,24 +189,13 @@ noremap  à                `
 noremap  àà               ``
 nnoremap <leader>q        :wq<CR>
 nnoremap <leader><leader> :w<CR>
-inoremap <leader>u        <ESC>u
 noremap  <leader>r        :w<CR>:source   $MYVIMRC<CR>
-
-" Rendre les touches fléchées ineffectives
-nnoremap <up>    <nop>
-nnoremap <down>  <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
-inoremap <up>    <nop>
-inoremap <down>  <nop>
-inoremap <left>  <nop>
-inoremap <right> <nop>
 
 " Misc
 inoremap qq              <ESC>
 nnoremap <leader><space> :noh<CR>
-nnoremap <tab>           %
-vnoremap <tab>           %
+"nnoremap <tab>           %
+"vnoremap <tab>           %
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Behavior                                  "
@@ -222,6 +222,8 @@ function! HasPaste()
 endfunction
 
 set encoding=utf-8
+
+set matchpairs+=":",':'
 
 set nobackup
 set undofile
