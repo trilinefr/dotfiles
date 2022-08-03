@@ -30,6 +30,8 @@
    set viminfofile=$XDG_STATE_HOME/vim/viminfo
    endif
 
+" Map leader
+let mapleader      = "'"
 
 " Plugins
 let data_dir = "$XDG_CONFIG_HOME/vim"
@@ -41,25 +43,25 @@ endif
 call plug#begin()
 
 Plug 'junegunn/vim-easy-align'
-nmap ga    <Plug>(EasyAlign)
-xmap ga    <Plug>(EasyAlign)
+nmap <leader>a    <Plug>(EasyAlign)
+xmap <leader>a    <Plug>(EasyAlign)
 
 Plug 'tpope/vim-surround'
 let  g:surround_no_mappings=1 " Interdire au plugin de faire les mappings par défaut
 " Normal mode
-nmap ds    <Plug>Dsurround
-nmap ycs   <Plug>Csurround
-nmap ycS   <Plug>CSurround
-nmap ys    <Plug>Ysurround
-nmap yS    <Plug>YSurround
-nmap yss   <Plug>Yssurround
-nmap ySs   <Plug>YSsurround
-nmap ySS   <Plug>YSsurround
+nmap ds      <Plug>Dsurround
+nmap ycs     <Plug>Csurround
+nmap ycS     <Plug>CSurround
+nmap ys      <Plug>Ysurround
+nmap yS      <Plug>YSurround
+nmap yss     <Plug>Yssurround
+nmap ySs     <Plug>YSsurround
+nmap ySS     <Plug>YSsurround
 " Visual mode
-xmap S     <Plug>VSurround
-xmap gS    <Plug>VgSurround
+xmap ys      <Plug>VSurround
+xmap gS      <Plug>VgSurround
 " Insert mode 
-imap <C-s> <plug>Isurround
+imap <C-s>   <plug>Isurround
 imap <C-S-s> <Plug>ISurround
 
 Plug 'tpope/vim-repeat'
@@ -67,15 +69,15 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
 Plug 'tommcdo/vim-exchange'
-let g:exchange_no_mappings=1
-nmap lx <Plug>(Exchange)
-xmap X  <Plug>(Exchange)
-nmap lxl <Plug>(ExchangeClear)
-nmap lxx <Plug>(ExchangeLine)
+let  g:exchange_no_mappings=1
+nmap <leader>x  <Plug>(Exchange)
+nmap <leader>X  <Plug>(ExchangeLine)
+xmap <leader>x  <Plug>(Exchange)
+nmap <leader>xc <Plug>(ExchangeClear)
 
 Plug 'tpope/vim-abolish'
 let g:abolish_no_mappings=1
-nmap lm <Plug>(abolish-coerce-word)
+nmap <leader>co <Plug>(abolish-coerce-word)
 
 
 call plug#end()
@@ -86,10 +88,6 @@ if $XDG_SESSION_TYPE==?"WAYLAND"
     au BufWritePost ~/.config/sway/config !swaymsg reload
     au BufWritePost ~/.config/waybar/config !swaymsg reload
 endif
-
-" Sommaire (mark - Section) :
-"     > k - Bépo conf
-"     > b - Behaviour 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,8 +181,6 @@ noremap w<CR>    :vsplit<CR><C-w><C-w>:e
 
 
 " Raccourcis personnalisés
-let      mapleader        = "'"
-let      localmapleader   = "'"
 noremap  à                `
 noremap  àà               ``
 nnoremap <leader>q        :wq<CR>
