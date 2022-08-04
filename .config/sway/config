@@ -21,7 +21,7 @@ bar {
 
 #### Variables
 ## Modifier keys
-set $mod_switch Super_L
+set $mod_switch Henkan_Mode
 set $mod Mod1
 floating_modifier $mod
 
@@ -135,7 +135,7 @@ output {
 # Modes
 ## Default mode 
 ### Go to switch mode
-bindsym Super_L mode $switch
+bindsym $mod_switch mode $switch
 
 ### Raccourcis en accès direct
 #### Launching apps
