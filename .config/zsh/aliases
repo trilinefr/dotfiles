@@ -30,3 +30,7 @@ alias grep="grep --color -i"
 
 # Shell commands
 alias rr="source $ZDOTDIR/.zshrc"
+
+# Vim
+alias v="vim"
+alias vd="vimdiff"

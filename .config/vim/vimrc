@@ -79,7 +79,6 @@ Plug 'tpope/vim-abolish'
 let g:abolish_no_mappings=1
 nmap <leader>co <Plug>(abolish-coerce-word)
 
-
 call plug#end()
 
 colorscheme torte
@@ -174,11 +173,9 @@ noremap wp       <C-w>o
 noremap w<SPACE> :split<CR><C-w><C-w>:e
 noremap w<CR>    :vsplit<CR><C-w><C-w>:e
 
-" Remaper les commandes de scroll
-" _______________________________
-"
-" Scroll down
-
+" Tags
+" ____
+noremap <c-)> <c-]>
 
 " Raccourcis personnalisés
 noremap  à                `
