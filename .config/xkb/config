@@ -1,0 +1,9 @@
+xkb_keymap {
+    xkb_keycodes { include "evdev" };
+    xkb_types { include "default" };
+    xkb_compat { include "complete"};
+    xkb_symbols {
+        include "fr(bepo)"
+    };
+    xkb_geometry {};
+};

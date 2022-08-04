@@ -107,10 +107,8 @@ input {
         xkb_variant latin9
     }
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
-        xkb_layout fr
-        xkb_variant bepo
-        xkb_model tm2030USB-106
-    }
+        xkb_file ~/.config/xkb/config
+        }
 }
 
 
