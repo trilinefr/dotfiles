@@ -30,3 +30,8 @@ alias grep="grep --color -i"
 
 # Shell commands
 alias rr="source $ZDOTDIR/.zshrc"
+alias mkalias="vim $ZDOTDIR/aliases"
+
+# Wev
+alias w="wev"
+alias wk="w -f wl_keyboard"
