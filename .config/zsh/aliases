@@ -35,3 +35,7 @@ alias mkalias="vim $ZDOTDIR/aliases"
 # Wev
 alias w="wev"
 alias wk="w -f wl_keyboard"
+
+# Vim
+alias v="vim"
+alias vd="vimdiff"
