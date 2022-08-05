@@ -1,9 +1,39 @@
 xkb_keymap {
-    xkb_keycodes { include "evdev" };
-    xkb_types { include "default" };
-    xkb_compat { include "complete"};
-    xkb_symbols {
-        include "fr(bepo)"
+    xkb_keycodes { include "evdev"    };
+    xkb_types    { include "default"  };
+    xkb_compat   { include "complete" };
+    xkb_geometry { include "pc105"    };
+    xkb_symbols  {
+        include "pc(pc105)+fr(bepo)"
+        
+        // Redéfinition de la touche <MUHE> en Control_L
+        replace key <MUHE> { [ Control_L, Control_L ] };
+        modifier_map Control { <RCTL>, <MUHE> };
+        
+        // Accès au niveau 5 via LCTL
+        key <LCTL> {
+            type[Group1]="ONE_LEVEL",
+            symbols[Group1] = [ ISO_Level5_Shift ]
+        };
+        include "level5(modifier_mapping)"
+
+        // Accès aux chiffres via le niveau 5
+        key <AC06> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 0, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AC07> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 1, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AC08> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 2, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AC09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 3, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AC10> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 4, NoSymbol, NoSymbol, NoSymbol ] };
+        
+        key <AB06> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 5, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AB07> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 6, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AB08> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 7, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AB09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 8, NoSymbol, NoSymbol, NoSymbol ] };
+        key <AB10> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 9, NoSymbol, NoSymbol, NoSymbol ] };
+    
+        // Accès à [] via le niveau 5 sur les touches d et l, = via ^ et " via v
+        key <AD06> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, equal, NoSymbol, NoSymbol, NoSymbol ] }; 
+        key <AD07> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, quotedbl, NoSymbol, NoSymbol, NoSymbol ] }; 
+        key <AD08> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketleft, NoSymbol, NoSymbol, NoSymbol ] }; 
+        key <AD09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketright, NoSymbol, NoSymbol, NoSymbol ] }; 
     };
-    xkb_geometry {};
-};
+}; 
