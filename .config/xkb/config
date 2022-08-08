@@ -1,3 +1,5 @@
+// vim: set filetype=xkb :
+
 xkb_keymap {
     xkb_keycodes { include "evdev"    };
     xkb_types    { include "default"  };
