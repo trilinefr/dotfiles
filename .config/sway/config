@@ -70,7 +70,7 @@ set $left_screen  DVI-I-1
 set $right_screen VGA-1
 
 ## Applications
-set $term         foot
+set $term         kitty
 set $browser      firefox
 set $file_manager $term --app-id=file-manager -e ranger
 set $editor       vim
@@ -80,12 +80,12 @@ set $notifcation_daemon dunst --startup_notification
 
 # Launch on startup
 assign [instance="Navigator"]  workspace $wksp_6
-assign [app_id="foot_startup"] workspace $wksp_1
+assign [class="term_startup"] workspace $wksp_1
 assign [instance="Mail"]       workspace $wksp_3
 assign [app_id="file-manager"] workspace $wksp_2
 
 exec $browser
-exec foot --app-id=foot_startup
+exec $term --class="term_startup"
 exec thunderbird
 exec $file_manager
 exec nextcloud --background
