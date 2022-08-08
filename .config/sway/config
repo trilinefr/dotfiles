@@ -70,13 +70,13 @@ set $left_screen  DVI-I-1
 set $right_screen VGA-1
 
 ## Applications
-set $term         kitty
-set $browser      firefox
-set $file_manager $term --app-id=file-manager -e ranger
-set $editor       vim
-set $menu         $term --app-id=launcher -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
-set $mail         thunderbird
-set $notifcation_daemon dunst --startup_notification
+set $term                kitty
+set $browser             firefox
+set $file_manager        $term --app-id=file-manager -e ranger
+set $editor              vim
+set $menu                $term --app-id=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
+set $mail                thunderbird
+set $notification_daemon dunst --startup_notification
 
 # Launch on startup
 assign [instance="Navigator"]  workspace $wksp_6
