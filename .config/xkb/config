@@ -12,8 +12,8 @@ xkb_keymap {
         replace key <MUHE> { [ Control_L, Control_L ] };
         modifier_map Control { <RCTL>, <MUHE> };
         
-        // Accès au niveau 5 via LCTL
-        key <LCTL> {
+        // Accès au niveau 5
+        key <LWIN> {
             type[Group1]="ONE_LEVEL",
             symbols[Group1] = [ ISO_Level5_Shift ]
         };
