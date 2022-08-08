@@ -1,2 +1,0 @@
----> Sway
-    - Mettre à jour les descripteurs de mode
