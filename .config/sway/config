@@ -3,14 +3,12 @@
 #### Configuration (mostly default but written down here in case I'd want to modify them later)
 ## TODO: add bar configuration
 #swaynag_command swaynag (use only to provide additionnal argument on default command, has to be first in the config file)
-#bar waybar <bar-subcommands>
-default_orientation auto
-workspace_layout tabbed
-xwayland enable
-default_border normal
 
-# Réglages divers
-focus_wrapping no
+default_orientation           auto
+workspace_layout              tabbed
+xwayland                      enable
+default_border                normal
+focus_wrapping                no
 workspace_auto_back_and_forth yes
 
 
@@ -72,9 +70,9 @@ set $right_screen VGA-1
 ## Applications
 set $term                kitty
 set $browser             firefox
-set $file_manager        $term --app-id=file-manager -e ranger
+set $file_manager        $term --class=file-manager -e ranger
 set $editor              vim
-set $menu                $term --app-id=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
+set $menu                $term --class=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
 set $mail                thunderbird
 set $notification_daemon dunst --startup_notification
 
