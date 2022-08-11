@@ -11,8 +11,8 @@ endif
 call plug#begin()
 
 Plug 'junegunn/vim-easy-align'
-nmap <leader>a    <Plug>(EasyAlign)
-xmap <leader>a    <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
 
 Plug 'tpope/vim-surround'
 let  g:surround_no_mappings=1 " Interdire au plugin de faire les mappings par défaut
@@ -173,14 +173,7 @@ set viminfo^=%
 " http://archive09.linux.com/feature/120126
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\
 "    [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Column:\ %v\ %p%%
-" Returns true if paste mode is enabled
-function! HasPaste()
-     if &paste
-     return 'PASTE MODE  '
-     en
- return ''
-endfunction
+set statusline=%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Column:\ %v\ %p%%
 
 set encoding=utf-8
 
@@ -195,7 +188,7 @@ set shiftwidth  =4
 set softtabstop =4
 set expandtab
 set autoindent
-set backspace   =indent,eol,start
+set backspace   =eol,start
 
 set wrap linebreak
 set scrolloff=10
