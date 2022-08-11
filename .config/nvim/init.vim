@@ -47,6 +47,11 @@ Plug 'tpope/vim-abolish'
 let g:abolish_no_mappings=1
 nmap <leader>co <Plug>(abolish-coerce-word)
 
+Plug 'lervag/vimtex'
+runtime vimtex_config.vim
+
+Plug 'ycm-core/YouCompleteMe'
+
 call plug#end()
 
 colorscheme torte
