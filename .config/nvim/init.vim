@@ -51,6 +51,7 @@ Plug 'lervag/vimtex'
 runtime vimtex_config.vim
 
 Plug 'ycm-core/YouCompleteMe'
+runtime ycm_config.vim
 
 call plug#end()
 
@@ -76,11 +77,15 @@ onoremap aé aw
 onoremap aÉ aW
 onoremap ié iw
 onoremap iÉ iW
-" Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
-noremap w <C-w>
-noremap W <C-w><C-w>
+vnoremap aé aw
+vnoremap aÉ aW
+vnoremap ié iw
+vnoremap iÉ iW
+" pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
+noremap w <c-w>
+noremap W <c-w><c-w>
  
-" [HJKL] -> {CTSR}
+" [hjkl] -> {ctsr}
 " ————————————————
 " {cr} = « gauche / droite »
 noremap c h
@@ -88,44 +93,44 @@ noremap r l
 " {ts} = « haut / bas »
 noremap t j
 noremap s k
-" {CR} = « haut / bas de l'écran »
-noremap C H
-noremap R L
-" {TS} = « joindre / aide »
+" {cr} = « haut / bas de l'écran »
+noremap c h
+noremap r l
+" {ts} = « joindre / aide »
 noremap T J
 noremap S K
-" Corollaire : repli suivant / précédent
+" corollaire : repli (fold) suivant / précédent
 noremap zs zj
 noremap zt zk
  
-" {HJKL} <- [CTSR]
+" {hjkl} <- [ctsr]
 " ————————————————
-" {J} = « Jusqu'à »            (j = suivant, J = précédant)
+" {j} = « jusqu'à »            (j = suivant, J = précédant)
 noremap j t
 noremap J T
-" {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
+" {l} = « change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
 noremap l c
 noremap L C
-" {H} = « Remplace »           (h = un caractère slt, H = reste en « Remplace »)
+" {h} = « remplace »           (h = un caractère slt, H = reste en « Remplace »)
 noremap h r
 noremap H R
-" {K} = « Substitue »          (k = caractère, K = ligne)
+" {k} = « substitue »          (k = caractère, K = ligne)
 noremap k s
-noremap K S
-" Corollaire : correction orthographique
+noremap k s
+" corollaire : correction orthographique
 noremap ]k ]s
 noremap [k [s
  
-" Désambiguation de {g}
+" désambiguation de {g}
 " —————————————————————
 " ligne écran précédente / suivante (à l'intérieur d'une phrase)
 noremap gs gk
 noremap gt gj
 " onglet précédent / suivant
-noremap gb gT
+noremap gb gt
 noremap gé gt
-" optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
-noremap gB :exe "silent! tabfirst"<CR>
+" optionnel : {gb} / {gé} pour aller au premier / dernier onglet
+noremap gb :exe "silent! tabfirst"<CR>
 noremap gÉ :exe "silent! tablast"<CR>
 " optionnel : {g"} pour aller au début de la ligne écran
 noremap g" g0 
