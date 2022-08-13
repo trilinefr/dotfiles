@@ -52,6 +52,20 @@ runtime vimtex_config.vim
 
 Plug 'ycm-core/YouCompleteMe'
 runtime ycm_config.vim
+<<<<<<< HEAD
+=======
+
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger       = '<C-e>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-t>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-s>'
+let g:UltiSnipsEditSplit           = 'context'
+let g:UltiSnipsSnippetDirectories  = ["custom_snippets", "UltiSnips"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
+
+Plug 'honza/vim-snippets'
+
+Plug 'junegunn/fzf.vim'
+>>>>>>> 49af4e9 (Get vimtex working)
 
 call plug#end()
 
@@ -198,7 +212,7 @@ set shiftwidth  =4
 set softtabstop =4
 set expandtab
 set autoindent
-set backspace   =eol,start
+set backspace   =eol,start,indent
 
 set wrap linebreak
 set scrolloff=10
