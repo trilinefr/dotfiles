@@ -37,5 +37,6 @@ alias w="wev"
 alias wk="w -f wl_keyboard"
 
 # Vim
-alias v="vim"
-alias vd="vimdiff"
+alias vim="nvim"
+alias v="nvim"
+alias vd="nvim -d"
