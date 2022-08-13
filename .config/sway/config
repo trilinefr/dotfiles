@@ -197,10 +197,10 @@ bindsym $mod+v split horizontal
 bindsym $mod+h split vertical
 
 ### Actions
-bindsym $mod+k      kill
-bindsym BTN_MIDDLE  kill
-bindsym $mod+f      floating toggle
-bindsym $mod+period mode $resize
+bindsym $mod+Shift+k kill
+bindsym BTN_MIDDLE   kill
+bindsym $mod+f       floating toggle
+bindsym $mod+period  mode $resize
 
 
 ## Switch mode
@@ -326,14 +326,14 @@ mode $layout {
 }
 
 ## Resize mode
-mode $resize {
-    bindsym $left       resize shrink width
-    bindsym $right      resize grow width
-    bindsym $up         resize shrink height
-    bindsym $down       resize grow height
-    bindsym $mod+$left  gaps inner current plus 5px
-    bindsym $mod+$right gaps inner current minus 5px
-    bindsym Escape      mode default
+mode $resize             {
+    bindsym $left        resize shrink width
+    bindsym $right       resize grow width
+    bindsym $up          resize shrink height
+    bindsym $down        resize grow height
+    bindsym Shift+$left  gaps inner current plus 5px
+    bindsym Shift+$right gaps inner current minus 5px
+    bindsym Escape       mode default
 }
 
 ## Launch mode
