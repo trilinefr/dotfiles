@@ -64,8 +64,8 @@ set $wksp_8       8
 set $wksp_9       9
 set $wksp_10      10
 
-set $left_screen  DVI-I-1
-set $right_screen VGA-1
+set $left_screen  VGA-1
+set $right_screen DVI-I-1
 
 ## Applications
 set $term                kitty
@@ -78,7 +78,7 @@ set $notification_daemon dunst --startup_notification
 
 # Launch on startup
 assign [instance="Navigator"]  workspace $wksp_6
-assign [class="term_startup"]  workspace $wksp_1
+assign [app_id="term_startup"]  workspace $wksp_1
 assign [app_id="evolution"]    workspace $wksp_3
 assign [app_id="file-manager"] workspace $wksp_2
 
@@ -123,8 +123,8 @@ output {
     }
 
     # Resolution settings
-    DVI-I-1 mode 1366x768@60Hz
-    VGA-1 mode 1920x1080@60Hz
+    VGA-1   mode 1366x768@60Hz
+    DVI-I-1 mode 1920x1080@60Hz
 
     # Sreen position
     $left_screen position 0 0
