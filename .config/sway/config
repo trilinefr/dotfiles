@@ -5,11 +5,17 @@
 #swaynag_command swaynag (use only to provide additionnal argument on default command, has to be first in the config file)
 
 default_orientation           auto
-workspace_layout              tabbed
+workspace_layout              stacking
 xwayland                      enable
 default_border                normal
 focus_wrapping                no
 workspace_auto_back_and_forth yes
+hide_edge_borders             both
+smart_borders                 on
+smart_gaps                    on
+gaps                          inner 5px
+gaps                          outer 5px
+mouse_warping                 container
 
 
 bar {
@@ -19,8 +25,8 @@ bar {
 
 #### Variables
 ## Modifier keys
-set $mod_switch Henkan_Mode
-set $mod Mod1
+set               $mod_switch Henkan_Mode
+set               $mod Mod1
 floating_modifier $mod
 
 ## Mouvements
@@ -139,11 +145,10 @@ bindsym $mod_switch mode $switch
 
 ### Raccourcis en accès direct
 #### Launching apps
-bindsym $mod+Return exec $term
-bindsym $mod_switch+Space layout toggle split
+bindsym $mod+Return  exec $term
 bindsym XF86HomePage exec $browser
-bindsym XF86Mail exec $mail
-bindsym $mod+Space exec $menu
+bindsym XF86Mail     exec $mail
+bindsym $mod+Space   exec $menu
 
 #### Mouvements
 ##### Switch between floating and tiles area
@@ -151,12 +156,12 @@ bindsym $mod+Tab focus mode_toggle
 bindsym $mod+dead_circumflex focus parent
 
 ##### Focus
-bindsym $mod+$right focus right
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
+bindsym $mod+$right         focus right
+bindsym $mod+$left          focus left
+bindsym $mod+$down          focus down
+bindsym $mod+$up            focus up
 bindsym Control+$mod+$right focus output right
-bindsym Control+$mod+$left focus output left
+bindsym Control+$mod+$left  focus output left
 
 ##### Workspaces
 bindsym $mod+$key_1  workspace $wksp_1
@@ -195,6 +200,10 @@ bindsym Shift+$mod+backspace move to scratchpad
 #### Layout
 bindsym $mod+v split horizontal
 bindsym $mod+h split vertical
+bindsym $mod+Control+tab layout toggle all
+bindsym $mod+Control+t layout tabbed
+bindsym $mod+Control+v layout splitv
+bindsym $mod+Control+h layout splith
 
 ### Actions
 bindsym $mod+Shift+k kill
@@ -309,10 +318,12 @@ mode $move {
     bindsym Apostrophe          mode default
 }
 
-mode $layout {
+mode $layout            {
     bindsym Space       layout toggle
     bindsym $mod+Space  layout toggle split
     bindsym Shift+Space layout toggle all
+    bindsym t           layout tabbed
+    bindsym s           layout stacking
     bindsym p           focus parent
     bindsym h           split horizontal; mode default
     bindsym v           split vertical; mode default
