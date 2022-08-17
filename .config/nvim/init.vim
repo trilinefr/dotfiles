@@ -52,20 +52,17 @@ runtime vimtex_config.vim
 
 Plug 'ycm-core/YouCompleteMe'
 runtime ycm_config.vim
-<<<<<<< HEAD
-=======
 
 Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger       = '<C-e>'
-let g:UltiSnipsJumpForwardTrigger  = '<c-t>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-s>'
+let g:UltiSnipsExpandTrigger       = '<Space><Space>'
+let g:UltiSnipsJumpForwardTrigger  = '<Space><Space>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Space><S-Space>'
 let g:UltiSnipsEditSplit           = 'context'
-let g:UltiSnipsSnippetDirectories  = ["custom_snippets", "UltiSnips"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
+let g:UltiSnipsSnippetDirectories  = ["UltiSnips"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
 
 Plug 'honza/vim-snippets'
 
 Plug 'junegunn/fzf.vim'
->>>>>>> 49af4e9 (Get vimtex working)
 
 call plug#end()
 
