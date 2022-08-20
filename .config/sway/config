@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Configuration modale de swaywm
 
 #### Configuration (mostly default but written down here in case I'd want to modify them later)
@@ -26,39 +25,28 @@ bar {
 
 #### Variables
 ## Modifier keys
-set               $mod_switch Henkan_Mode
+set               $mod_switch Mod4
 set               $mod Mod1
 floating_modifier $mod
 
 ## Mouvements
-set $left c
-set $down t
-set $up s
-set $right r
+set $left  h
+set $down  j
+set $up    k
+set $right l
 
 ## Workspaces
 
-# set $key_0 b
-# set $key_1 quotedbl
-# set $key_2 guillemotleft
-# set $key_3 guillemotright
-# set $key_4 parenleft
-# set $key_5 parenright
-# set $key_6 at
-# set $key_7 plus
-# set $key_8 minus
-# set $key_9 slash
-
-set $key_1        a
-set $key_2        u
-set $key_3        i
-set $key_4        e
-set $key_5        comma
-set $key_6        b
-set $key_7        eacute
-set $key_8        p
-set $key_9        o
-set $key_0        egrave
+set $key_1        q
+set $key_2        s
+set $key_3        d
+set $key_4        f
+set $key_5        g
+set $key_6        a
+set $key_7        z
+set $key_8        e
+set $key_9        r
+set $key_0        t
 
 set $wksp_1       1
 set $wksp_2       2
@@ -75,7 +63,7 @@ set $left_screen  VGA-1
 set $right_screen DVI-I-1
 
 ## Applications
-set $term                kitty
+set $term                foot
 set $browser             firefox
 set $file_manager        $term --class=file-manager -e ranger
 set $editor              vim
@@ -161,8 +149,6 @@ bindsym $mod+$right         focus right
 bindsym $mod+$left          focus left
 bindsym $mod+$down          focus down
 bindsym $mod+$up            focus up
-bindsym Control+$mod+$right focus output right
-bindsym Control+$mod+$left  focus output left
 
 ##### Workspaces
 bindsym $mod+$key_1  workspace $wksp_1
@@ -199,17 +185,16 @@ bindsym $mod+backspace scratchpad show
 bindsym Shift+$mod+backspace move to scratchpad
 
 #### Layout
-bindsym $mod+v split horizontal
-bindsym $mod+h split vertical
+bindsym $mod+v split toggle
 bindsym $mod+Control+tab layout toggle all
 bindsym $mod+Control+t layout tabbed
 bindsym $mod+Control+v layout splitv
 bindsym $mod+Control+h layout splith
 
 ### Actions
-bindsym $mod+Shift+k kill
+bindsym $mod+Shift+c kill
 bindsym BTN_MIDDLE   kill
-bindsym $mod+f       floating toggle
+bindsym $mod+w       floating toggle
 bindsym $mod+period  mode $resize
 
 
@@ -236,7 +221,7 @@ mode $switch {
     bindsym y mode $layout
 
     # Resize mode
-    bindsym k mode $resize
+    bindsym r mode $resize
 
     # Launch mode
     bindsym Space mode $launch
@@ -266,9 +251,6 @@ mode $move {
     bindsym $up                 focus up
     bindsym $mod+$left          focus output left
     bindsym $mod+$right         focus output right
-    bindsym f                   focus floating
-    bindsym h                   focus tiling
-    bindsym dead_circumflex     focus parent
     bindsym Tab                 focus mode_toggle
 
     bindsym $key_1              workspace $wksp_1
@@ -291,8 +273,7 @@ mode $move {
     bindsym Shift+$left         move left 10px
     bindsym Shift+$down         move down 10px
     bindsym Shift+$up           move up 10px
-    bindsym Shift+z             move position center
-    
+
     ## To specified workspace
     bindsym Shift+$key_1        move container to workspace $wksp_1
     bindsym Shift+$key_2        move container to workspace $wksp_2

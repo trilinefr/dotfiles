@@ -1,5 +1,5 @@
 " Map leader
-let mapleader      = "'"
+let mapleader      = ","
 
 " Plugins
 let data_dir = "$XDG_CONFIG_HOME/nvim"
@@ -74,111 +74,6 @@ if $XDG_SESSION_TYPE==?"WAYLAND"
     au BufWritePost ~/.config/waybar/config !swaymsg reload
 endif
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                    BÉPO configuration & misc remapping                     "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {W} -> [É]
-" ——————————
-" On remappe W sur É :
-noremap é w
-noremap É W
-" Corollaire: on remplace les text objects aw, aW, iw et iW
-" pour effacer/remplacer un mot quand on n’est pas au début (daé / laé).
-onoremap aé aw
-onoremap aÉ aW
-onoremap ié iw
-onoremap iÉ iW
-vnoremap aé aw
-vnoremap aÉ aW
-vnoremap ié iw
-vnoremap iÉ iW
-" pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
-noremap w <c-w>
-noremap W <c-w><c-w>
- 
-" [hjkl] -> {ctsr}
-" ————————————————
-" {cr} = « gauche / droite »
-noremap c h
-noremap r l
-" {ts} = « haut / bas »
-noremap t j
-noremap s k
-" {cr} = « haut / bas de l'écran »
-noremap c h
-noremap r l
-" {ts} = « joindre / aide »
-noremap T J
-noremap S K
-" corollaire : repli (fold) suivant / précédent
-noremap zs zj
-noremap zt zk
- 
-" {hjkl} <- [ctsr]
-" ————————————————
-" {j} = « jusqu'à »            (j = suivant, J = précédant)
-noremap j t
-noremap J T
-" {l} = « change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
-noremap l c
-noremap L C
-" {h} = « remplace »           (h = un caractère slt, H = reste en « Remplace »)
-noremap h r
-noremap H R
-" {k} = « substitue »          (k = caractère, K = ligne)
-noremap k s
-noremap k s
-" corollaire : correction orthographique
-noremap ]k ]s
-noremap [k [s
- 
-" désambiguation de {g}
-" —————————————————————
-" ligne écran précédente / suivante (à l'intérieur d'une phrase)
-noremap gs gk
-noremap gt gj
-" onglet précédent / suivant
-noremap gb gt
-noremap gé gt
-" optionnel : {gb} / {gé} pour aller au premier / dernier onglet
-noremap gb :exe "silent! tabfirst"<CR>
-noremap gÉ :exe "silent! tablast"<CR>
-" optionnel : {g"} pour aller au début de la ligne écran
-noremap g" g0 
-" <> en direct
-" ————————————
-noremap « <
-noremap » >
- 
-" Remaper la gestion des fenêtres
-" ———————————————————————————————
-noremap wt       <C-w>j
-noremap ws       <C-w>k
-noremap wc       <C-w>h
-noremap wr       <C-w>l
-noremap wd       <C-w>c
-noremap wo       <C-w>s
-noremap wp       <C-w>o
-noremap w<SPACE> :split<CR><C-w><C-w>:e
-noremap w<CR>    :vsplit<CR><C-w><C-w>:e
-
-" Tags
-" ____
-noremap <c-)> <c-]>
-
-" Raccourcis personnalisés
-noremap  à                `
-noremap  àà               ``
-nnoremap <leader>q        :wq<CR>
-nnoremap <leader><leader> :w<CR>
-noremap  <leader>r        :w<CR>:source   $MYVIMRC<CR>
-
-" Misc
-inoremap qq              <ESC>
-nnoremap <leader><space> :noh<CR>
-"nnoremap <tab>           %
-"vnoremap <tab>           %
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Behavior                                  "
