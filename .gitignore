@@ -1,0 +1,9 @@
+.bash_*
+build
+.cache
+documents
+.lesshst
+.mozilla
+.vim
+.viminfo
+.ssh
