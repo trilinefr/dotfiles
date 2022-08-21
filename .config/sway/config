@@ -37,16 +37,16 @@ set $right l
 
 ## Workspaces
 
-set $key_1        q
-set $key_2        s
-set $key_3        d
-set $key_4        f
-set $key_5        g
-set $key_6        a
-set $key_7        z
-set $key_8        e
-set $key_9        r
-set $key_0        t
+set $key_1        a
+set $key_2        z
+set $key_3        e
+set $key_4        r
+set $key_5        t
+set $key_6        y
+set $key_7        u
+set $key_8        i
+set $key_9        o
+set $key_0        p
 
 set $wksp_1       1
 set $wksp_2       2
