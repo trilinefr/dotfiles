@@ -6,12 +6,12 @@ xkb_keymap {
     xkb_compat   { include "complete" };
     xkb_geometry { include "pc105"    };
     xkb_symbols  {
-        include "pc(pc105)+fr(latin9)+ctrl(nocaps)"
+        include "pc(pc105)+fr(oss)+ctrl(nocaps)"
         
-        // Redéfinition de la touche <MUHE> en Control_L
-        replace key <MUHE> { [ Control_L, Control_L ] };
-        modifier_map Control { <RCTL>, <MUHE> };
+        // Redéfinition de la touche espace sur le modèle du clavier bépo sans le nbsp au niveau 2
         
+        key <SPCE> { [           space,  space,    underscore,   nobreakspace ] }; // ␣ (espace insécable) _ (espace insécable)
+
         // Accès au niveau 5
         key <COMP> {
             type[Group1]="ONE_LEVEL",
