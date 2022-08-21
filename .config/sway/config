@@ -67,20 +67,11 @@ set $term                foot
 set $browser             firefox
 set $file_manager        $term --class=file-manager -e ranger
 set $editor              vim
-set $menu                $term --class=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
+set $menu                $term --app-id=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
 set $mail                evolution
 set $notification_daemon dunst --startup_notification
 
 # Launch on startup
-assign [instance="Navigator"]  workspace $wksp_6
-assign [app_id="term_startup"]  workspace $wksp_1
-assign [app_id="evolution"]    workspace $wksp_3
-assign [app_id="file-manager"] workspace $wksp_2
-
-exec $browser
-exec $term --class="term_startup"
-exec $mail
-exec $file_manager
 exec nextcloud --background
 exec $notification_daemon
 
@@ -100,11 +91,10 @@ set $move   "Move mode : [ctsr] moves focus, prepend Shift to move container, [s
 #### Input
 input {
     * {
-        xkb_layout fr
-        xkb_variant latin9
+        xkb_file ~/.config/xkb/azerty
     }
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
-        xkb_file ~/.config/xkb/config
+        xkb_file ~/.config/xkb/bepo
         }
 }
 

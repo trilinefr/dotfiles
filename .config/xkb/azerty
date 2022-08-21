@@ -6,19 +6,14 @@ xkb_keymap {
     xkb_compat   { include "complete" };
     xkb_geometry { include "pc105"    };
     xkb_symbols  {
-        include "pc(pc105)+fr(bepo)"
-        
-        // Correction d'erreurs de mappage en mode 106
-        key <AB11> { type[group1] = "EIGHT_LEVEL", [ ccdilla, Ccdilla, dead_cedilla, dead_belowcomma ] };
-        key <BKSL> { type[group1] = "ONE_LEVEL", [ XF86Mail ] };
-        key <HKTG> { type[group1] = "ONE_LEVEL", [ XF86HomePage ] };
+        include "pc(pc105)+fr(latin9)+ctrl(nocaps)"
         
         // Redéfinition de la touche <MUHE> en Control_L
         replace key <MUHE> { [ Control_L, Control_L ] };
         modifier_map Control { <RCTL>, <MUHE> };
         
         // Accès au niveau 5
-        key <LWIN> {
+        key <COMP> {
             type[Group1]="ONE_LEVEL",
             symbols[Group1] = [ ISO_Level5_Shift ]
         };
@@ -37,7 +32,7 @@ xkb_keymap {
         key <AB09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 8,            NoSymbol, NoSymbol, NoSymbol ] };
         key <AB10> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 9,            NoSymbol, NoSymbol, NoSymbol ] };
     
-        // Accès à [] via le niveau 5 sur les touches d et l, = via ^ et " via v
+        // Accès à []="
         key <AD06> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, equal,        NoSymbol, NoSymbol, NoSymbol ] };
         key <AD07> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, quotedbl,     NoSymbol, NoSymbol, NoSymbol ] };
         key <AD08> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketleft,  NoSymbol, NoSymbol, NoSymbol ] };
