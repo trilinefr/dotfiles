@@ -198,12 +198,13 @@ bindsym $mod+backspace scratchpad show
 bindsym Shift+$mod+backspace move to scratchpad
 
 #### Layout
-bindsym $mod+v split horizontal
-bindsym $mod+h split vertical
-bindsym $mod+Control+tab layout toggle all
-bindsym $mod+Control+t layout tabbed
-bindsym $mod+Control+v layout splitv
-bindsym $mod+Control+h layout splith
+bindsym $mod+v           split horizontal
+bindsym $mod+h           split vertical
+bindsym $mod+Control+tab layout toggle stacking splith splitv
+bindsym $mod+Control+t   layout tabbed
+bindsym $mod+Control+s   layout stacking
+bindsym $mod+Control+v   layout splith
+bindsym $mod+Control+h   layout splitv
 
 ### Actions
 bindsym $mod+Shift+k kill

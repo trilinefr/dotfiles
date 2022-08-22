@@ -59,7 +59,7 @@ let g:UltiSnipsJumpForwardTrigger  = '<Space><Space>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Space><S-Space>'
 let g:UltiSnipsListSnippets        = '<C-Space>' 
 let g:UltiSnipsEditSplit           = 'context'
-let g:UltiSnipsSnippetDirectories  = ["UltiSnips"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
+let g:UltiSnipsSnippetDirectories  = ["UltiSnips", "custom_snippets] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
 
 Plug 'honza/vim-snippets'
 
