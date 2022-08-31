@@ -30,7 +30,16 @@ alias grep="grep --color -i"
 
 # Shell commands
 alias rr="source $ZDOTDIR/.zshrc"
-alias mkalias="vim $ZDOTDIR/aliases"
+mkalias () {
+    echo Alias name :
+    read alias_name
+    echo Command :
+    read command_name
+    echo alias $alias_name="$command_name" >> $ZDOTDIR/aliases
+    source $ZDOTDIR/aliases
+}
+    
+    
 cdir () {
     /usr/bin/mkdir $1
     cd $1
@@ -44,3 +53,4 @@ alias wk="w -f wl_keyboard"
 alias vim="nvim"
 alias v="nvim"
 alias vd="nvim -d"
+alias t=task
