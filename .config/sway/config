@@ -113,6 +113,7 @@ input {
     * {
         xkb_layout fr
         xkb_variant latin9
+        xkb_options ctrl:nocaps
     }
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
         xkb_file ~/.config/xkb/config
