@@ -182,7 +182,7 @@ bindsym $mod+Control+v layout splitv
 bindsym $mod+Control+h layout splith
 
 ### Actions
-bindsym $mod+Shift+c kill
+bindsym $mod+Shift+q kill
 bindsym BTN_MIDDLE   kill
 bindsym $mod+w       floating toggle
 bindsym $mod+period  mode $resize
@@ -259,35 +259,35 @@ mode $move {
 
     # Move containers arround (pixels are for floating mode)
     ## Locally
-    bindsym Shift+$right        move right 10px
-    bindsym Shift+$left         move left 10px
-    bindsym Shift+$down         move down 10px
-    bindsym Shift+$up           move up 10px
+    bindsym Shift+$right move right 10px
+    bindsym Shift+$left  move left  10px
+    bindsym Shift+$down  move down  10px
+    bindsym Shift+$up    move up    10px
 
     ## To specified workspace
-    bindsym Shift+$key_1        move container to workspace $wksp_1
-    bindsym Shift+$key_2        move container to workspace $wksp_2
-    bindsym Shift+$key_3        move container to workspace $wksp_3
-    bindsym Shift+$key_4        move container to workspace $wksp_4
-    bindsym Shift+$key_5        move container to workspace $wksp_5
-    bindsym Shift+$key_6        move container to workspace $wksp_6
-    bindsym Shift+$key_7        move container to workspace $wksp_7
-    bindsym Shift+$key_8        move container to workspace $wksp_8
-    bindsym Shift+$key_9        move container to workspace $wksp_9
-    bindsym Shift+$key_0        move container to workspace $wksp_10
-    bindsym Shift+$mod+$left    move workspace to left
-    bindsym Shift+$mod+$right   move workspace to right
+    bindsym Shift+$key_1      move container to workspace $wksp_1
+    bindsym Shift+$key_2      move container to workspace $wksp_2
+    bindsym Shift+$key_3      move container to workspace $wksp_3
+    bindsym Shift+$key_4      move container to workspace $wksp_4
+    bindsym Shift+$key_5      move container to workspace $wksp_5
+    bindsym Shift+$key_6      move container to workspace $wksp_6
+    bindsym Shift+$key_7      move container to workspace $wksp_7
+    bindsym Shift+$key_8      move container to workspace $wksp_8
+    bindsym Shift+$key_9      move container to workspace $wksp_9
+    bindsym Shift+$key_0      move container to workspace $wksp_10
+    bindsym Shift+$mod+$left  move workspace to left
+    bindsym Shift+$mod+$right move workspace to right
 
     ## Scratchpad
-    bindsym Shift+Space         move window to scratchpad
-    bindsym Space               scratchpad show
+    bindsym Shift+Space move window to scratchpad
+    bindsym Space       scratchpad show
 
     # Go to launch mode
-    bindsym Return              mode $launch
+    bindsym Return mode launch
 
     # Exit move mode
-    bindsym Escape              mode default
-    bindsym Apostrophe          mode default
+    bindsym Escape     mode default
+    bindsym Apostrophe mode default
 }
 
 mode $layout            {
@@ -344,6 +344,3 @@ workspace $wksp_7  output $right_screen
 workspace $wksp_8  output $right_screen
 workspace $wksp_9  output $right_screen
 workspace $wksp_10 output $right_screen
-
-## Espace de travail par défaut des applications
-assign [app_id="org.pwmt.zathura"] workspace $wksp_7
