@@ -8,11 +8,6 @@ xkb_keymap {
     xkb_symbols  {
         include "pc(pc105)+fr(bepo)"
         
-        // Correction d'erreurs de mappage en mode 106
-        key <AB11> { type[group1] = "EIGHT_LEVEL", [ ccdilla, Ccdilla, dead_cedilla, dead_belowcomma ] };
-        key <BKSL> { type[group1] = "ONE_LEVEL", [ XF86Mail ] };
-        key <HKTG> { type[group1] = "ONE_LEVEL", [ XF86HomePage ] };
-        
         // Redéfinition de la touche <MUHE> en Control_L
         replace key <MUHE> { [ Control_L, Control_L ] };
         modifier_map Control { <RCTL>, <MUHE> };
@@ -38,5 +33,10 @@ xkb_keymap {
         key <AD07> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, quotedbl,     NoSymbol, NoSymbol, NoSymbol ] };
         key <AD08> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketleft,  NoSymbol, NoSymbol, NoSymbol ] };
         key <AD09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketright, NoSymbol, NoSymbol, NoSymbol ] };
+
+        // Correction d'erreurs de mappage en mode 106
+        key <AB11> { type[group1] = "FOUR_LEVEL", [ ccedilla, CCedilla, dead_cedilla, dead_belowcomma ]};
+        key <BKSL> { type[group1] = "ONE_LEVEL", [ XF86Mail ] };
+        key <HKTG> { type[group1] = "ONE_LEVEL", [ XF86HomePage ] };
     };
 }; 
