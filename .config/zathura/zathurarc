@@ -1,23 +1,23 @@
-map              Esc abort
-map [fullscreen] Esc abort
+map Esc       abort
 
-map t        scroll down
-map c        scroll left
-map r        scroll right
-map s        scroll up
-map T        scroll half-down
-map S        scroll half-up
-map <Space>  navigate
+map t         scroll down
+map c         scroll left
+map r         scroll right
+map s         scroll up
+map T         scroll half-down
+map S         scroll half-up
+map <Space>   navigate next
+map <C-Space> navigate previous
 
-map n        search forward
-map N        search backward
+map n         search forward
+map N         search backward
 
-map f        toggle_fullscreen
-map i        toggle_index
-map <Return> toggle_page_mode
-map <C-c>      rotate rotate-ccw
-map <C-r>      rotate rotate-cw
+map f         toggle_fullscreen
+map i         toggle_index
+map <Return>  toggle_page_mode
+map <C-c>     rotate rotate-ccw
+map <C-r>     rotate rotate-cw
 
-map +        zoom in
-map -        zoom out
-map =        adjust best-fit
+map +         zoom in
+map -         zoom out
+map =         adjust best-fit
