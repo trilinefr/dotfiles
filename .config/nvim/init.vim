@@ -18,8 +18,8 @@ Plug 'tpope/vim-surround'
 let  g:surround_no_mappings=1 " Interdire au plugin de faire les mappings par défaut
 " Normal mode
 nmap ds      <Plug>Dsurround
-nmap ycs     <Plug>Csurround
-nmap ycS     <Plug>CSurround
+nmap ls     <Plug>Csurround
+nmap lS     <Plug>CSurround
 nmap ys      <Plug>Ysurround
 nmap yS      <Plug>YSurround
 nmap yss     <Plug>Yssurround

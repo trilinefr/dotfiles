@@ -20,22 +20,20 @@ let g:vimtex_view_general_viewer='zathura'
 let g:vimtex_view_zathura_check_libsynctex=v:true
 "let g:vimtex_view_zathura_options=
 
+" Behavior
+let g:vimtex_env_change_autofill=0
+
 function! Synctex()
     execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
     redraw!
 endfunction
 map <C-enter> :call Synctex()<cr>
-<<<<<<< HEAD
-
-=======
->>>>>>> 49af4e9 (Get vimtex working)
-
 
 " Mappings
-nnoremap lse              <plug>(vimtex-env-change)
-nnoremap lsc              <plug>(vimtex-cmd-change)
-nnoremap ls$              <plug>(vimtex-env-change-math)
-nnoremap lsd              <plug>(vimtex-delim-change-math)
+nnoremap lC              <plug>(vimtex-env-change)
+nnoremap lc             <plug>(vimtex-cmd-change)
+nnoremap lm              <plug>(vimtex-env-change-math)
+nnoremap lme              <plug>(vimtex-delim-change-math)
 
 " Use `am` and `im` for the inline math text object
 omap     am               <Plug>(vimtex-a$)
