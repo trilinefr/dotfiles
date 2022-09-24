@@ -64,6 +64,7 @@ let g:UltiSnipsSnippetDirectories  = ["UltiSnips", "custom_snippets] " Liste de 
 Plug 'honza/vim-snippets'
 
 Plug 'junegunn/fzf.vim'
+inoremap 's <ESC>:Snippets<CR>
 
 call plug#end()
 
