@@ -15,7 +15,7 @@ smart_borders                 on
 smart_gaps                    on
 gaps                          inner 5px
 gaps                          outer 5px
-mouse_warping                 container
+mouse_warping                 none
 
 
 bar {
