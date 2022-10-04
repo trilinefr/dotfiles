@@ -64,3 +64,7 @@ dotfiles_examples/
 ffi/
 src/
 test.pdf
+VirtualBox
+.gnuplot*
+*VirtualBox*
+test
