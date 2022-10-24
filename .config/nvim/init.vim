@@ -174,6 +174,8 @@ noremap  àà               ``
 nnoremap <leader>q        :wq<CR>
 nnoremap <leader><leader> :w<CR>
 noremap  <leader>r        :w<CR>:source   $MYVIMRC<CR>
+noremap  <space>          f
+noremap  <C-Space> F
 
 " Misc
 inoremap qq              <ESC>
