@@ -13,11 +13,7 @@ xkb_keymap {
         key <SPCE> { [           space,  space,    underscore,   nobreakspace ] }; // ␣ (espace insécable) _ (espace insécable)
 
         // Accès au niveau 5
-        key <COMP> {
-            type[Group1]="ONE_LEVEL",
-            symbols[Group1] = [ ISO_Level5_Shift ]
-        };
-        include "level5(modifier_mapping)"
+        include "level5(lwin_switch_lock)"
 
         // Accès aux chiffres via le niveau 5
         key <AC06> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, 0,            NoSymbol, NoSymbol, NoSymbol ] };
