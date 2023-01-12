@@ -27,12 +27,12 @@ function! Synctex()
     execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
     redraw!
 endfunction
-map <C-enter> :call Synctex()<cr>
+map      <C-enter>        :call Synctex()<cr>
 
 " Mappings
-nnoremap lC              <plug>(vimtex-env-change)
-nnoremap lc             <plug>(vimtex-cmd-change)
-nnoremap lm              <plug>(vimtex-env-change-math)
+nnoremap lC               <plug>(vimtex-env-change)
+nnoremap lc               <plug>(vimtex-cmd-change)
+nnoremap lm               <plug>(vimtex-env-change-math)
 nnoremap lme              <plug>(vimtex-delim-change-math)
 
 " Use `am` and `im` for the inline math text object
@@ -59,5 +59,5 @@ nnoremap <LocalLeader>lv  <plug>(vimtex-view)
 noremap  <nop>            <plug>(vimtex-toggle-main)
 
 " Imaps mapping, read :h vimtex-imaps for more
-let g:vimtex_imaps_leader=','
+let      g:vimtex_imaps_leader=','
 
