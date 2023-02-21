@@ -55,3 +55,5 @@ alias v="nvim"
 alias vd="nvim -d"
 alias t=task
 alias s=sway
+alias open=rifle
+alias o=open
