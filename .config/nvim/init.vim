@@ -71,8 +71,8 @@ call plug#end()
 
 colorscheme torte
 
-if $XDG_SESSION_TYPE==?"WAYLAND"
-    au BufWritePost ~/.config/sway/config !swaymsg reload
+if     $XDG_SESSION_TYPE==?"WAYLAND"
+    au BufWritePost ~/.config/sway/config   !swaymsg reload
     au BufWritePost ~/.config/waybar/config !swaymsg reload
 endif
 
@@ -169,14 +169,14 @@ noremap w<CR>    :vsplit<CR><C-w><C-w>:e
 " ____
 noremap <c-)> <c-]>
 
-" Raccourcis personnalisés
+" Raccourcis personnalisés (dernière ligne : espace insécable)
 noremap  à                `
 noremap  àà               ``
 nnoremap <leader>q        :wq<CR>
 nnoremap <leader><leader> :w<CR>
-noremap  <leader>r        :w<CR>:source   $MYVIMRC<CR>
+noremap  <leader>r        :w<CR>:source $MYVIMRC<CR>
 noremap  <space>          f
-noremap  <C-Space> F
+noremap                   F
 
 " Misc
 inoremap qq              <ESC>

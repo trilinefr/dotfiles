@@ -1,3 +1,5 @@
+# vim: set filetype=swayconfig :
+
 # Configuration modale de swaywm
 
 #### Configuration (mostly default but written down here in case I'd want to modify them later)
@@ -322,7 +324,7 @@ mode $move {
     bindsym Apostrophe          mode default
 }
 
-mode $layout            {
+mode $layout {
     bindsym Space       layout toggle
     bindsym $mod+Space  layout toggle split
     bindsym Shift+Space layout toggle all
@@ -333,6 +335,10 @@ mode $layout            {
     bindsym v           split vertical; mode default
     bindsym l           split toggle; mode default
     bindsym f           floating toggle
+    bindsym $mod+$up    focus up
+    bindsym $mod+$left  focus left
+    bindsym $mod+$right focus right
+    bindsym $mod+$down  focus down
     
     # Exit layout mode
     bindsym Return      mode default
@@ -341,7 +347,7 @@ mode $layout            {
 }
 
 ## Resize mode
-mode $resize             {
+mode $resize {
     bindsym $left        resize shrink width
     bindsym $right       resize grow width
     bindsym $up          resize shrink height
