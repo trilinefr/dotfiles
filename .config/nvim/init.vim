@@ -209,21 +209,21 @@ set nobackup
 set undofile
 set nocompatible
 
-set tabstop     =4
-set shiftwidth  =4
-set softtabstop =4
+set tabstop     = 4
+set shiftwidth  = 4
+set softtabstop = 4
 set expandtab
 set autoindent
-set backspace   =eol,start,indent
+set backspace   = eol,start,indent
 
 set wrap linebreak
-set scrolloff=10
+set scrolloff   = 10
 
-set history  =200 " keep 200 lines of command line history
-set ruler       " show the cursor position all the time
-set showcmd     " display incomplete commands
-set wildmenu    " display completion matches in a status line
-set wildmode =longest:full
+set history     = 200 " keep 200 lines of command line history
+set ruler             " show the cursor position all the time
+set showcmd           " display incomplete commands
+set wildmenu          " display completion matches in a status line
+set wildmode    = longest:full
 
 set display=truncate
 
@@ -238,6 +238,8 @@ set mouse=a
 filetype plugin indent on
 syntax on
 let c_comment_strings=1
+let g:markdown_folding=1
+au FileType markdown setlocal foldlevel=1
 
 set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
