@@ -23,3 +23,25 @@ map -         zoom          out
 map =         adjust_window width
 
 map v         recolor
+
+
+map [fullscreen] Esc       abort
+
+map [fullscreen] t         scroll        down
+map [fullscreen] c         scroll        left
+map [fullscreen] r         scroll        right
+map [fullscreen] s         scroll        up
+map [fullscreen] T         scroll        half-down
+map [fullscreen] S         scroll        half-up
+map [fullscreen] <Space>   navigate      next
+map [fullscreen] <C-Space> navigate      previous
+
+map [fullscreen] f         toggle_fullscreen
+map [fullscreen] i         toggle_index
+map [fullscreen] <Return>  toggle_page_mode
+map [fullscreen] <C-c>     rotate        rotate-ccw
+map [fullscreen] <C-r>     rotate        rotate-cw
+
+map [fullscreen] +         zoom          in
+map [fullscreen] -         zoom          out
+map [fullscreen] =         adjust_window width
