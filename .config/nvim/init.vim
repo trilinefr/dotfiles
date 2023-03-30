@@ -1,8 +1,8 @@
 " Map leader
-let mapleader      = "'"
+let mapleader      ="'"
 
 " Plugins
-let data_dir = "$XDG_CONFIG_HOME/nvim"
+let data_dir ="$XDG_CONFIG_HOME/nvim"
 if empty(glob(data_dir . '/autoload/plug.vim'))
     silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -54,13 +54,13 @@ Plug 'ycm-core/YouCompleteMe'
 runtime ycm_config.vim
 
 Plug 'SirVer/ultisnips'
-let  g:UltiSnipsExpandTrigger                           = '<Space><Space>'
-let  g:UltiSnipsJumpForwardTrigger                      = '<Space><Space>'
-let  g:UltiSnipsJumpBackwardTrigger                     = '<S-Space><S-Space>'
-let  g:UltiSnipsListSnippets                            = '<C-Space>'
-let  g:UltiSnipsEditSplit                               = 'context'
-let  g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = '~/.config/nvim/custom_snippets/'
-let  g:UltiSnipsSnippetDirectories                      = ["UltiSnips", "custom_snippets"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
+let  g:UltiSnipsExpandTrigger                           ='<Space><Space>'
+let  g:UltiSnipsJumpForwardTrigger                      ='<Space><Space>'
+let  g:UltiSnipsJumpBackwardTrigger                     ='<S-Space><S-Space>'
+let  g:UltiSnipsListSnippets                            ='<C-Space>'
+let  g:UltiSnipsEditSplit                               ='context'
+let  g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit ='~/.config/nvim/custom_snippets/'
+let  g:UltiSnipsSnippetDirectories                      =["UltiSnips", "custom_snippets"] " Liste de dossiers où chercher les snippets, valeur par défaut ici, voir :h UltiSnips-how-snippets-are-loaded
 
 Plug 'honza/vim-snippets'
 
@@ -101,16 +101,16 @@ noremap W <c-w><c-w>
  
 " [hjkl] -> {ctsr}
 " ————————————————
-" {cr} = « gauche / droite »
+" {cr} =« gauche / droite »
 noremap c h
 noremap r l
-" {ts} = « haut / bas »
+" {ts} =« haut / bas »
 noremap t j
 noremap s k
-" {cr} = « haut / bas de l'écran »
+" {cr} =« haut / bas de l'écran »
 noremap c h
 noremap r l
-" {ts} = « joindre / aide »
+" {ts} =« joindre / aide »
 noremap T J
 noremap S K
 " corollaire : repli (fold) suivant / précédent
@@ -119,16 +119,16 @@ noremap zt zk
  
 " {hjkl} <- [ctsr]
 " ————————————————
-" {j} = « jusqu'à »            (j = suivant, J = précédant)
+" {j} =« jusqu'à »            (j =suivant, J =précédant)
 noremap j t
 noremap J T
-" {l} = « change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
+" {l} =« change »             (l =attend un mvt, L =jusqu'à la fin de ligne)
 noremap l c
 noremap L C
-" {h} = « remplace »           (h = un caractère slt, H = reste en « Remplace »)
+" {h} =« remplace »           (h =un caractère slt, H =reste en « Remplace »)
 noremap h r
 noremap H R
-" {k} = « substitue »          (k = caractère, K = ligne)
+" {k} =« substitue »          (k =caractère, K =ligne)
 noremap k s
 noremap k s
 " corollaire : correction orthographique
@@ -189,7 +189,7 @@ nnoremap <leader><space> :noh<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \ if line("'\"") > 0 && line("'\"") <=line("$") |
       \   exe "normal! g`\"" |
       \ endif
 " Remember info about open buffers on close
@@ -209,21 +209,21 @@ set nobackup
 set undofile
 set nocompatible
 
-set tabstop     = 4
-set shiftwidth  = 4
-set softtabstop = 4
+set tabstop     =4
+set shiftwidth  =4
+set softtabstop =4
 set expandtab
 set autoindent
-set backspace   = eol,start,indent
+set backspace   =eol,start,indent
 
 set wrap linebreak
-set scrolloff   = 10
+set scrolloff   =10
 
-set history     = 200 " keep 200 lines of command line history
+set history     =200 " keep 200 lines of command line history
 set ruler             " show the cursor position all the time
 set showcmd           " display incomplete commands
 set wildmenu          " display completion matches in a status line
-set wildmode    = longest:full
+set wildmode    =longest:full
 
 set display=truncate
 
@@ -253,3 +253,8 @@ set incsearch
 set gdefault
 set showmatch
 set hlsearch
+
+""""""""""""""""""""""""""""""""
+"  File type specific mapping  "
+""""""""""""""""""""""""""""""""
+au FileType markdown inoremap  * [ ]
