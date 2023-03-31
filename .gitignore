@@ -68,3 +68,7 @@ VirtualBox
 .gnuplot*
 *VirtualBox*
 test
+.config/0ad
+.config/vimb
+.task*
+sway_conf
