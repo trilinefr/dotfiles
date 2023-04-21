@@ -35,7 +35,7 @@ xkb_keymap {
         key <AD09> { type[group1] = "EIGHT_LEVEL", [ NoSymbol, NoSymbol, NoSymbol, NoSymbol, bracketright, NoSymbol, NoSymbol, NoSymbol ] };
 
         // Correction d'erreurs de mappage en mode 106
-        key <AB11> { type[group1] = "FOUR_LEVEL", [ ccedilla, CCedilla, dead_cedilla, dead_belowcomma ]};
+        key <AB11> { type[group1] = "FOUR_LEVEL", [ ccedilla, Ccedilla, dead_cedilla, dead_belowcomma ]};
         key <BKSL> { type[group1] = "ONE_LEVEL", [ XF86Mail ] };
         key <HKTG> { type[group1] = "ONE_LEVEL", [ XF86HomePage ] };
     };
