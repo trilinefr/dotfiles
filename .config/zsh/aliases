@@ -57,3 +57,5 @@ alias t=task
 alias s=sway
 alias open=rifle
 alias o=open
+alias r2c="zathura --page=5 '/home/documents/tristan/Nextcloud/cours/D4/ressources/Arrete R2C/Document PDF.pdf'"
+alias ta='task add'
