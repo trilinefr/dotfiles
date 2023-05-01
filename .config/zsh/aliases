@@ -35,7 +35,7 @@ mkalias () {
     read alias_name
     echo Command :
     read command_name
-    echo alias $alias_name="$command_name" >> $ZDOTDIR/aliases
+    echo alias $alias_name=\"$command_name\" >> $ZDOTDIR/aliases
     source $ZDOTDIR/aliases
 }
     
@@ -59,3 +59,4 @@ alias open=rifle
 alias o=open
 alias r2c="zathura --page=5 '/home/documents/tristan/Nextcloud/cours/D4/ressources/Arrete R2C/Document PDF.pdf'"
 alias ta='task add'
+alias td='t due.before:tomorrow or due:tomorrow'
