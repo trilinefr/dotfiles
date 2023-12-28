@@ -28,13 +28,13 @@ bar {
 #### Variables
 ## Modifier keys
 set               $mod_switch Henkan_Mode
-set               $mod Mod1
+set               $mod        Mod1
 floating_modifier $mod
 
 ## Mouvements
-set $left c
-set $down t
-set $up s
+set $left  c
+set $down  t
+set $up    s
 set $right r
 
 ## Workspaces
@@ -77,7 +77,7 @@ set $right_screen DVI-I-1
 
 ## Applications
 set $term                kitty
-set $browser             firefox
+set $browser             qutebrowser
 set $file_manager        $term --class=file-manager -e ranger
 set $editor              vim
 set $menu                $term --class=launcher     -e ~/build/sway-launcher-desktop/sway-launcher-desktop.sh
@@ -109,6 +109,26 @@ set $layout "Layout mode : split[h], split[v], switch between layouts [space], [
 set $resize "Resize mode : [ctsr], prepend shift to modify gaps"
 set $launch "Launch mode : [enter] terminal, [b]rowser"
 set $move   "Move mode : [ctsr] moves focus, prepend Shift to move container, [space] shows/hide scratchpad, [Shift+space] send to scratchpad"
+
+#
+# Screen capture
+#
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+mode "$screenshot" {
+    bindsym 1 exec 'grim -g "$(slurp)" ~/screenshots/ps_$(date +"%d_%m_%Y_%H%M%S").png', mode "default"
+    bindsym 2 exec 'grim ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy'mode "default"
+    bindsym 4 exec 'grim - | wl-copy', mode "default"
+    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+
+bindsym $mod+agrave mode "$screenshot"
+bindsym $mod+x exec 'grim -g "$(slurp)" - | wl-copy'
 
 #### Input
 input {
