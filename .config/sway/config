@@ -90,12 +90,9 @@ set $move   "Move mode : [ctsr] moves focus, prepend Shift to move container, [s
 
 #### Input
 input {
-    * {
+* {
         xkb_file ~/.config/xkb/azerty
     }
-    "7764:8240:TypeMatrix.com_USB_Keyboard" {
-        xkb_file ~/.config/xkb/bepo
-        }
 }
 
 
