@@ -25,11 +25,6 @@ function! Synctex()
     redraw!
 endfunction
 map <C-enter> :call Synctex()<cr>
-<<<<<<< HEAD
-
-=======
->>>>>>> 49af4e9 (Get vimtex working)
-
 
 " Mappings
 nnoremap lse              <plug>(vimtex-env-change)

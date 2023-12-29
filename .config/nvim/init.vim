@@ -133,6 +133,7 @@ let c_comment_strings=1
 set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
+au BufWritePost init.vim so $MYVIMRC
 """"""""""""
 " Search   "
 """"""""""""
@@ -142,3 +143,11 @@ set incsearch
 set gdefault
 set showmatch
 set hlsearch
+
+
+"""""""""""""""
+"  Shortcuts  "
+"""""""""""""""
+no <leader>q        :wq<CR>
+no <leader><leader> :w<CR>
+no <leader><space>  :noh<CR>
