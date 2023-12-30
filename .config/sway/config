@@ -172,17 +172,17 @@ bindsym $mod+backspace scratchpad show
 bindsym Shift+$mod+backspace move to scratchpad
 
 #### Layout
-bindsym $mod+v split toggle
+bindsym $mod+v           split  toggle
 bindsym $mod+Control+tab layout toggle all
-bindsym $mod+Control+t layout tabbed
-bindsym $mod+Control+v layout splitv
-bindsym $mod+Control+h layout splith
+bindsym $mod+Control+t   layout tabbed
+bindsym $mod+Control+v   layout splitv
+bindsym $mod+Control+h   layout splith
 
 ### Actions
 bindsym $mod+Shift+q kill
 bindsym BTN_MIDDLE   kill
 bindsym $mod+w       floating toggle
-bindsym $mod+period  mode $resize
+bindsym $mod+comma   mode     $resize
 
 
 ## Switch mode
