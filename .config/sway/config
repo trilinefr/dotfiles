@@ -2,8 +2,6 @@
 
 # Configuration modale de swaywm
 
-#### Configuration (mostly default but written down here in case I'd want to modify them later)
-## TODO: add bar configuration
 #swaynag_command swaynag (use only to provide additionnal argument on default command, has to be first in the config file)
 
 default_orientation           auto
@@ -38,17 +36,6 @@ set $up    s
 set $right r
 
 ## Workspaces
-
-# set $key_0 b
-# set $key_1 quotedbl
-# set $key_2 guillemotleft
-# set $key_3 guillemotright
-# set $key_4 parenleft
-# set $key_5 parenright
-# set $key_6 at
-# set $key_7 plus
-# set $key_8 minus
-# set $key_9 slash
 
 set $key_1        a
 set $key_2        u
@@ -90,7 +77,6 @@ assign [app_id="term_startup"]  workspace $wksp_1
 assign [app_id="evolution"]    workspace $wksp_3
 assign [app_id="file-manager"] workspace $wksp_2
 
-exec $browser
 exec $term --class="term_startup"
 exec $mail
 exec $file_manager
@@ -221,8 +207,7 @@ bindsym $mod+backspace scratchpad show
 bindsym Shift+$mod+backspace move to scratchpad
 
 #### Layout
-bindsym $mod+v           split horizontal
-bindsym $mod+h           split vertical
+bindsym $mod+v           split toggle
 bindsym $mod+Control+tab layout toggle stacking splith splitv
 bindsym $mod+Control+t   layout tabbed
 bindsym $mod+Control+s   layout stacking
