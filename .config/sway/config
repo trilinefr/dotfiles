@@ -78,15 +78,14 @@ assign [app_id="evolution"]    workspace $wksp_3
 assign [app_id="file-manager"] workspace $wksp_2
 
 exec $term --class="term_startup"
-exec $mail
-exec $file_manager
-exec nextcloud --background
-exec $notification_daemon
-
 exec dbus-update-activation-environment --sytemd --all
 exec gnome-keyring-daemon --start --daemonize
 exec export SSH_AUTH_SOCK
 
+exec $mail
+exec $file_manager
+exec nextcloud --background
+exec $notification_daemon
 
 ## Modes
 set $switch "Switch mode : access syst[e]m mode, [m]ove mode (or [ctsr]), la[y]out mode, [r]esize mode, [space] launch mode"
