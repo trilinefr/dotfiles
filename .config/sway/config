@@ -168,6 +168,8 @@ bindsym $mod+$right         focus right
 bindsym $mod+$left          focus left
 bindsym $mod+$down          focus down
 bindsym $mod+$up            focus up
+bindsym $mod+BTN_SIDE       focus up
+bindsym $mod+BTN_EXTRA      focus down
 bindsym Control+$mod+$right focus output right
 bindsym Control+$mod+$left  focus output left
 
