@@ -219,10 +219,10 @@ bindsym $mod+Control+h   layout splitv
 bindsym $mod+F4      kill
 bindsym $mod+Shift+k kill
 bindsym BTN_MIDDLE   kill
-bindsym $mod+f       floating toggle
-bindsym $mod+period  mode     $resize
-bindsym $mod+plus    opacity  plus  0.05
-bindsym $mod+minus   opacity  minus 0.05
+bindsym $mod+f       fullscreen toggle
+bindsym $mod+period  mode       $resize
+bindsym $mod+plus    opacity    plus  0.05
+bindsym $mod+minus   opacity    minus 0.05
 
 
 ## Switch mode
