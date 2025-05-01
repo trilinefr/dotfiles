@@ -17,6 +17,7 @@ gaps                          inner 5px
 gaps                          outer 5px
 mouse_warping                 none
 
+include /etc/sway/config.d/*
 
 bar {
     position top
@@ -60,7 +61,7 @@ set $wksp_9       9
 set $wksp_10      10
 
 set $left_screen  VGA-1
-set $right_screen DVI-I-1
+set $right_screen HDMI-A-1
 
 ## Applications
 set $term                kitty
@@ -78,9 +79,8 @@ assign [app_id="evolution"]    workspace $wksp_3
 assign [app_id="file-manager"] workspace $wksp_2
 
 exec $term --class="term_startup"
-exec dbus-update-activation-environment --sytemd --all
-exec gnome-keyring-daemon --start --daemonize
-exec export SSH_AUTH_SOCK
+##exec dbus-update-activation-environment --sytemd --all
+##exec gnome-keyring-daemon --start --daemonize --unlock
 
 exec $mail
 exec $file_manager
@@ -125,6 +125,7 @@ input {
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
         xkb_file ~/.config/xkb/config
         }
+    * accel_profile flat
 }
 
 
@@ -137,12 +138,12 @@ output {
     }
 
     # Resolution settings
-    VGA-1   mode 1366x768@60Hz
-    DVI-I-1 mode 1920x1080@60Hz
+    VGA-1    mode 1920x1080@60Hz
+    HDMI-A-1 mode 1920x1080@60Hz
 
-    # Sreen position
+    # Screen position
     $left_screen position 0 0
-    $right_sceen position 1366 0
+    $right_screen position 1920 0
 }
 
 

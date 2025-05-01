@@ -183,7 +183,7 @@
 },
 
 {
-    "output":["DVI-I-1"],
+    "output":["HDMI-A-1"],
     "height": 30, // TODO: réévaluer ce truc
     //"spacing": 4, // Idem
 
@@ -199,11 +199,11 @@
          "all-outputs": false,
          "disable-auto-back-and-forth": true,
          "persistent-workspaces": {
-            "6": ["DVI-I-1"],
-            "7": ["DVI-I-1"],
-            "8": ["DVI-I-1"],
-            "9": ["DVI-I-1"],
-            "10": ["DVI-I-1"]
+            "6": ["HDMI-A-1"],
+            "7": ["HDMI-A-1"],
+            "8": ["HDMI-A-1"],
+            "9": ["HDMI-A-1"],
+            "10": ["HDMI-A-1"]
         },
          "format": "{name}: {icon}",
          "format-icons": {
