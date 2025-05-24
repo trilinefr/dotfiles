@@ -125,7 +125,7 @@ input {
     "7764:8240:TypeMatrix.com_USB_Keyboard" {
         xkb_file ~/.config/xkb/config
         }
-    * accel_profile flat
+    * accel_profile adaptive
 }
 
 
